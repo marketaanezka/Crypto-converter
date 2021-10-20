@@ -1,21 +1,31 @@
-import React from 'react'
-import logo from './logo.svg'
-import './App.css'
+import React, { useEffect } from 'react'
 
-function App(): JSX.Element {
+type Todo = {
+  userId: number
+  id: number
+  title: string
+  completed: boolean
+}
+
+const getJSON = (url: string): Promise<void> => {
+  return fetch(url)
+    .then<Todo>((response) => response.json())
+    .then((result) => console.log(JSON.stringify(result, null, 2)))
+}
+
+const loadTodo = () => {
+  return getJSON('https://jsonplaceholder.typicode.com/todos/1')
+}
+
+const App = (): JSX.Element => {
+  useEffect(() => {
+    console.log(loadTodo())
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <header>
         <p>Ahoj</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   )
