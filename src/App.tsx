@@ -49,22 +49,34 @@ const App = (): JSX.Element => {
       'czk,gbp,usd,eur,cad,cny,jpy'
     );
     console.log(exchangeRateList);
-  }, []);
+  }, [from, to]);
 
   return (
     <div className="App">
       <header>
         <form>
           <input type="number" />
-          <select name="crypto" id="">
-            <option value={from}>gbp</option>
-            <option value={to}>usd</option>
+          <select
+            name="currencyselect"
+            id="currencyselect"
+            value={from}
+            onChange={(e) => setFrom(e.target.value)}
+          >
+            <option value="gbp">gbp</option>
+            <option value="usd">usd</option>
+            <option value="eur">euro</option>
           </select>
           <br />
           <input type="number" disabled />
-          <select name="crypto" id="">
+          <select
+            name="crypto"
+            id="crypto"
+            value={to}
+            onChange={(e) => setTo(e.target.value)}
+          >
             <option value="bitcoin">BTC</option>
             <option value="cardano">Cardano</option>
+            <option value="chainlink">ChainLink</option>
           </select>
         </form>
         <h3>Exchange rate</h3>
@@ -74,6 +86,17 @@ const App = (): JSX.Element => {
               style: 'currency',
               currency: 'usd',
             }).format(exchangeRateList[to][from])}
+          </p>
+        ) : (
+          <p>Loading...</p>
+        )}
+        <h3>Inverse exchange rate</h3>
+        {exchangeRateList !== null && exchangeRateList !== undefined ? (
+          <p>
+            {new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'usd',
+            }).format(1 / exchangeRateList[to][from])}
           </p>
         ) : (
           <p>Loading...</p>
