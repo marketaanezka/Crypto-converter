@@ -74,7 +74,9 @@ const App = (): JSX.Element => {
     useState<CurrencyPrice | null>(null);
   const [from, setFrom] = useState('usd');
   const [to, setTo] = useState('bitcoin');
-  const [inversed, setInversed] = useState(false);
+  // const [inversed, setInversed] = useState(false);
+  const [amount, setAmout] = useState<number>(0);
+  const [convertedAmount, setConvertedAmount] = useState<number>(0);
 
   useEffect(() => {
     getExchangeRate(
@@ -87,39 +89,54 @@ const App = (): JSX.Element => {
   return (
     <div className="App">
       <header>
-        <form>
-          <input type="number" />
-          <select
-            name="currencyselect"
-            id="currencyselect"
-            value={from}
-            onChange={(e) => setFrom(e.target.value)}
-          >
-            {fiatValues.map((fiat) => {
-              return (
-                <option key={fiat.name} value={fiat.code}>
-                  {fiat.name}
-                </option>
-              );
-            })}
-          </select>
-          <br />
-          <input type="number" />
-          <select
-            name="crypto"
-            id="crypto"
-            value={to}
-            onChange={(e) => setTo(e.target.value)}
-          >
-            {cryptoValues.map((crypto) => {
-              return (
-                <option key={crypto.name} value={crypto.name.toLowerCase()}>
-                  {crypto.name}, {crypto.code}
-                </option>
-              );
-            })}
-          </select>
-        </form>
+        {exchangeRateList !== null && exchangeRateList !== undefined ? (
+          <form>
+            <input
+              type="number"
+              value={amount}
+              onChange={(e) => setAmout(Number(e.target.value))}
+            />
+            <select
+              name="currencyselect"
+              id="currencyselect"
+              value={from}
+              onChange={(e) => setFrom(e.target.value)}
+            >
+              {fiatValues.map((fiat) => {
+                return (
+                  <option key={fiat.name} value={fiat.code}>
+                    {fiat.name}
+                  </option>
+                );
+              })}
+            </select>
+            <br />
+            <input
+              type="number"
+              value={amount * exchangeRateList[to][from]}
+              onChange={() =>
+                setConvertedAmount(amount * exchangeRateList[to][from])
+              }
+            />
+            <select
+              name="crypto"
+              id="crypto"
+              value={to}
+              onChange={(e) => setTo(e.target.value)}
+            >
+              {cryptoValues.map((crypto) => {
+                return (
+                  <option key={crypto.name} value={crypto.name.toLowerCase()}>
+                    {crypto.name}, {crypto.code}
+                  </option>
+                );
+              })}
+            </select>
+          </form>
+        ) : (
+          <p>Loading...</p>
+        )}
+
         <h3>Exchange rate</h3>
         {exchangeRateList !== null && exchangeRateList !== undefined ? (
           <p>{formatNumber(exchangeRateList[to][from])}</p>
