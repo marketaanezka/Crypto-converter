@@ -1,34 +1,41 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
 
-type Todo = {
-  userId: number
-  id: number
-  title: string
-  completed: boolean
+type Price = { [key: string]: number };
+
+interface CurrencyPrice {
+  [key: string]: Price;
 }
 
-const getJSON = (url: string): Promise<void> => {
-  return fetch(url)
-    .then<Todo>((response) => response.json())
-    .then((result) => console.log(JSON.stringify(result, null, 2)))
-}
-
-const loadTodo = () => {
-  return getJSON('https://jsonplaceholder.typicode.com/todos/1')
-}
+const getExchangeRate = async (
+  crypto: string,
+  currency: string
+): Promise<void> => {
+  try {
+    const response = await fetch(
+      `https://api.coingecko.com/api/v3/simple/price?ids=${crypto}&vs_currencies=${currency}`
+    );
+    const data = await response.json();
+    console.log(data);
+  } catch (err) {
+    console.error('rejected', err);
+  }
+};
 
 const App = (): JSX.Element => {
+  // const [crypto, setCrypto] = useState('');
+  // const [currency, setCurrency] = useState('');
+
   useEffect(() => {
-    console.log(loadTodo())
-  }, [])
+    getExchangeRate('bitcoin,ethereum', 'czk,gbp,usd');
+  }, []);
 
   return (
     <div className="App">
       <header>
-        <p>Ahoj</p>
+        <p>Crypto converter</p>
       </header>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
