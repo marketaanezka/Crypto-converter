@@ -6,6 +6,8 @@ interface CurrencyPrice {
   [key: string]: Price;
 }
 
+const URL_BASE = 'https://api.coingecko.com/api/v3/simple';
+
 const cryptoValues = [
   { name: 'Bitcoin', code: 'BTC' },
   { name: 'Ethereum', code: 'ETH' },
@@ -29,20 +31,27 @@ const fiatValues = [
   { name: 'Yen', code: 'jpy' },
 ];
 
-const getExchangeRate = async (
-  crypto: string,
-  currency: string
-): Promise<void> => {
-  try {
-    const response = await fetch(
-      `https://api.coingecko.com/api/v3/simple/price?ids=${crypto}&vs_currencies=${currency}`
-    );
-    const data = await response.json();
-    console.log('api called');
-  } catch (err) {
-    console.error('rejected', err);
-  }
-};
+const cryptoNames = cryptoValues.map((item) => item.name);
+const cryptoQuery = cryptoNames.join();
+
+const fiatCodes = fiatValues.map((item) => item.code);
+const fiatQuery = fiatCodes.join();
+
+// const getExchangeRate = async (
+//   url:string,
+//   crypto: string,
+//   currency: string
+// ): Promise<void> => {
+//   try {
+//     const response = await fetch(
+//       `${url}/price?ids=${crypto}&vs_currencies=${currency}`
+//     );
+//     const data = await response.json();
+//     console.log('api called');
+//   } catch (err) {
+//     console.error('rejected', err);
+//   }
+// };
 
 const formatNumber = (number: number): string => {
   const str = number.toString();
@@ -55,12 +64,13 @@ const formatNumber = (number: number): string => {
 
 const App = (): JSX.Element => {
   const getExchangeRate = async (
+    url: string,
     crypto: string,
     currency: string
   ): Promise<void> => {
     try {
       const response = await fetch(
-        `https://api.coingecko.com/api/v3/simple/price?ids=${crypto}&vs_currencies=${currency}`
+        `${url}/price?ids=${crypto}&vs_currencies=${currency}`
       );
       const data = await response.json();
       console.log(data);
@@ -74,15 +84,30 @@ const App = (): JSX.Element => {
     useState<CurrencyPrice | null>(null);
   const [from, setFrom] = useState('usd');
   const [to, setTo] = useState('bitcoin');
-  // const [inversed, setInversed] = useState(false);
-  const [amount, setAmout] = useState<number>(0);
-  const [convertedAmount, setConvertedAmount] = useState<number>(0);
+  const [inversed, setInversed] = useState(false);
+  const [amount, setAmount] = useState<number>(1);
+
+  let toAmount, fromAmount;
+  if (!inversed && exchangeRateList !== null) {
+    fromAmount = amount;
+    toAmount = amount / exchangeRateList[to][from];
+  } else if (exchangeRateList !== null) {
+    fromAmount = amount * exchangeRateList[to][from];
+    toAmount = amount;
+  }
+
+  const handleFromAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAmount(Number(e.target.value));
+    setInversed(false);
+  };
+
+  const handleToAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAmount(Number(e.target.value));
+    setInversed(true);
+  };
 
   useEffect(() => {
-    getExchangeRate(
-      'bitcoin,ethereum,tether,cardano,solana,polkadot,ripple,usd-coin,chainlink,vechain',
-      'czk,gbp,usd,eur,cad,cny,jpy'
-    );
+    getExchangeRate(URL_BASE, cryptoQuery, fiatQuery);
     // console.log(exchangeRateList);
   }, [from, to]);
 
@@ -91,32 +116,11 @@ const App = (): JSX.Element => {
       <header>
         {exchangeRateList !== null && exchangeRateList !== undefined ? (
           <form>
-            <input
-              type="number"
-              value={amount}
-              onChange={(e) => setAmout(Number(e.target.value))}
-            />
-            <select
-              name="currencyselect"
-              id="currencyselect"
-              value={from}
-              onChange={(e) => setFrom(e.target.value)}
-            >
-              {fiatValues.map((fiat) => {
-                return (
-                  <option key={fiat.name} value={fiat.code}>
-                    {fiat.name}
-                  </option>
-                );
-              })}
-            </select>
             <br />
             <input
               type="number"
-              value={amount * exchangeRateList[to][from]}
-              onChange={() =>
-                setConvertedAmount(amount * exchangeRateList[to][from])
-              }
+              value={toAmount}
+              onChange={handleToAmountChange}
             />
             <select
               name="crypto"
@@ -132,12 +136,32 @@ const App = (): JSX.Element => {
                 );
               })}
             </select>
+            <br />
+            <input
+              type="number"
+              value={fromAmount}
+              onChange={handleFromAmountChange}
+            />
+            <select
+              name="currencyselect"
+              id="currencyselect"
+              value={from}
+              onChange={(e) => setFrom(e.target.value)}
+            >
+              {fiatValues.map((fiat) => {
+                return (
+                  <option key={fiat.name} value={fiat.code}>
+                    {fiat.name}
+                  </option>
+                );
+              })}
+            </select>
           </form>
         ) : (
           <p>Loading...</p>
         )}
 
-        <h3>Exchange rate</h3>
+        {/* <h3>Exchange rate</h3>
         {exchangeRateList !== null && exchangeRateList !== undefined ? (
           <p>{formatNumber(exchangeRateList[to][from])}</p>
         ) : (
@@ -148,7 +172,7 @@ const App = (): JSX.Element => {
           <p>{formatNumber(1 / exchangeRateList[to][from])}</p>
         ) : (
           <p>Loading...</p>
-        )}
+        )} */}
       </header>
     </div>
   );
