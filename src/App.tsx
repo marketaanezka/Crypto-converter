@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import ExchangeRatesProvider, {
+  ExchangeRatesContext,
+} from './config/ExchangeProvider';
 
 type Price = { [key: string]: number };
 
@@ -37,31 +40,6 @@ const cryptoQuery = cryptoNames.join();
 const fiatCodes = fiatValues.map((item) => item.code);
 const fiatQuery = fiatCodes.join();
 
-// const getExchangeRate = async (
-//   url:string,
-//   crypto: string,
-//   currency: string
-// ): Promise<void> => {
-//   try {
-//     const response = await fetch(
-//       `${url}/price?ids=${crypto}&vs_currencies=${currency}`
-//     );
-//     const data = await response.json();
-//     console.log('api called');
-//   } catch (err) {
-//     console.error('rejected', err);
-//   }
-// };
-
-const formatNumber = (number: number): string => {
-  const str = number.toString();
-  const before = str.split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  const after = str.split('.')[1] ? `.${str.split('.')[1]}` : '';
-  const decimal = after.substring(0, 8);
-  const formattedNumber = before + decimal;
-  return formattedNumber;
-};
-
 const App = (): JSX.Element => {
   const getExchangeRate = async (
     url: string,
@@ -73,12 +51,14 @@ const App = (): JSX.Element => {
         `${url}/price?ids=${crypto}&vs_currencies=${currency}`
       );
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setExchangeRateList(data);
     } catch (err) {
       console.error('rejected', err);
     }
   };
+
+  const rates = useContext(ExchangeRatesContext);
 
   const [exchangeRateList, setExchangeRateList] =
     useState<CurrencyPrice | null>(null);
@@ -90,9 +70,9 @@ const App = (): JSX.Element => {
   let toAmount, fromAmount;
   if (!inversed && exchangeRateList !== null) {
     fromAmount = amount;
-    toAmount = amount / exchangeRateList[to][from];
+    toAmount = amount * exchangeRateList[to][from];
   } else if (exchangeRateList !== null) {
-    fromAmount = amount * exchangeRateList[to][from];
+    fromAmount = amount / exchangeRateList[to][from];
     toAmount = amount;
   }
 
@@ -109,18 +89,19 @@ const App = (): JSX.Element => {
   useEffect(() => {
     getExchangeRate(URL_BASE, cryptoQuery, fiatQuery);
     // console.log(exchangeRateList);
-  }, [from, to]);
+    console.log('context', rates);
+  }, []);
 
   return (
-    <div className="App">
-      <header>
+    <ExchangeRatesProvider>
+      <div className="App">
         {exchangeRateList !== null && exchangeRateList !== undefined ? (
           <form>
             <br />
             <input
               type="number"
-              value={toAmount}
-              onChange={handleToAmountChange}
+              value={fromAmount}
+              onChange={handleFromAmountChange}
             />
             <select
               name="crypto"
@@ -139,8 +120,8 @@ const App = (): JSX.Element => {
             <br />
             <input
               type="number"
-              value={fromAmount}
-              onChange={handleFromAmountChange}
+              value={toAmount}
+              onChange={handleToAmountChange}
             />
             <select
               name="currencyselect"
@@ -160,21 +141,8 @@ const App = (): JSX.Element => {
         ) : (
           <p>Loading...</p>
         )}
-
-        {/* <h3>Exchange rate</h3>
-        {exchangeRateList !== null && exchangeRateList !== undefined ? (
-          <p>{formatNumber(exchangeRateList[to][from])}</p>
-        ) : (
-          <p>Loading...</p>
-        )}
-        <h3>Inverse exchange rate</h3>
-        {exchangeRateList !== null && exchangeRateList !== undefined ? (
-          <p>{formatNumber(1 / exchangeRateList[to][from])}</p>
-        ) : (
-          <p>Loading...</p>
-        )} */}
-      </header>
-    </div>
+      </div>
+    </ExchangeRatesProvider>
   );
 };
 
