@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import ExchangeRatesProvider, {
-  ExchangeRatesContext,
-} from './config/ExchangeProvider';
+import Convertor from './components/Convertor';
 
 type Price = { [key: string]: number };
 
@@ -58,8 +56,6 @@ const App = (): JSX.Element => {
     }
   };
 
-  const rates = useContext(ExchangeRatesContext);
-
   const [exchangeRateList, setExchangeRateList] =
     useState<CurrencyPrice | null>(null);
   const [from, setFrom] = useState('usd');
@@ -89,60 +85,58 @@ const App = (): JSX.Element => {
   useEffect(() => {
     getExchangeRate(URL_BASE, cryptoQuery, fiatQuery);
     // console.log(exchangeRateList);
-    console.log('context', rates);
   }, []);
 
   return (
-    <ExchangeRatesProvider>
-      <div className="App">
-        {exchangeRateList !== null && exchangeRateList !== undefined ? (
-          <form>
-            <br />
-            <input
-              type="number"
-              value={fromAmount}
-              onChange={handleFromAmountChange}
-            />
-            <select
-              name="crypto"
-              id="crypto"
-              value={to}
-              onChange={(e) => setTo(e.target.value)}
-            >
-              {cryptoValues.map((crypto) => {
-                return (
-                  <option key={crypto.name} value={crypto.name.toLowerCase()}>
-                    {crypto.name}, {crypto.code}
-                  </option>
-                );
-              })}
-            </select>
-            <br />
-            <input
-              type="number"
-              value={toAmount}
-              onChange={handleToAmountChange}
-            />
-            <select
-              name="currencyselect"
-              id="currencyselect"
-              value={from}
-              onChange={(e) => setFrom(e.target.value)}
-            >
-              {fiatValues.map((fiat) => {
-                return (
-                  <option key={fiat.name} value={fiat.code}>
-                    {fiat.name}
-                  </option>
-                );
-              })}
-            </select>
-          </form>
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div>
-    </ExchangeRatesProvider>
+    <div className="App">
+      <Convertor />
+      {exchangeRateList !== null && exchangeRateList !== undefined ? (
+        <form>
+          <br />
+          <input
+            type="number"
+            value={fromAmount}
+            onChange={handleFromAmountChange}
+          />
+          <select
+            name="crypto"
+            id="crypto"
+            value={to}
+            onChange={(e) => setTo(e.target.value)}
+          >
+            {cryptoValues.map((crypto) => {
+              return (
+                <option key={crypto.name} value={crypto.name.toLowerCase()}>
+                  {crypto.name}, {crypto.code}
+                </option>
+              );
+            })}
+          </select>
+          <br />
+          <input
+            type="number"
+            value={toAmount}
+            onChange={handleToAmountChange}
+          />
+          <select
+            name="currencyselect"
+            id="currencyselect"
+            value={from}
+            onChange={(e) => setFrom(e.target.value)}
+          >
+            {fiatValues.map((fiat) => {
+              return (
+                <option key={fiat.name} value={fiat.code}>
+                  {fiat.name}
+                </option>
+              );
+            })}
+          </select>
+        </form>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
   );
 };
 

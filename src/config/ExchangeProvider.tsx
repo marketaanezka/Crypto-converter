@@ -2,13 +2,10 @@ import React, { createContext, useState, FC, useEffect } from 'react';
 import { ExchangeRates } from './types';
 import { URL_BASE, fiatQuery, cryptoQuery } from './data';
 
-const contextDefaultValues: ExchangeRates = {};
-
-export const ExchangeRatesContext =
-  createContext<ExchangeRates>(contextDefaultValues);
+export const ExchangeRatesContext = createContext<ExchangeRates | string>({});
 
 const ExchangeRatesProvider: FC = ({ children }) => {
-  const [rates, setRates] = useState<ExchangeRates>(contextDefaultValues);
+  const [rates, setRates] = useState<ExchangeRates>({});
 
   useEffect(() => {
     getExchangeRate(URL_BASE, cryptoQuery, fiatQuery);
