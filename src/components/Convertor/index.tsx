@@ -16,25 +16,15 @@ const Convertor = (): JSX.Element => {
 
   const handleFromAmountChange = (values: NumberFormatValues) => {
     const { floatValue } = values;
-    if (floatValue) {
-      setAmount(floatValue);
-    }
+    setAmount(floatValue ? floatValue : 0);
     setInversed(false);
   };
 
   const handleToAmountChange = (values: NumberFormatValues) => {
     const { floatValue } = values;
-    if (floatValue) {
-      setAmount(floatValue);
-    }
+    setAmount(floatValue ? floatValue : 0);
     setInversed(true);
   };
-
-  // const handleToAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const newAmount = Number(e.target.value.replaceAll(',', ''));
-  //   setAmount(newAmount);
-  //   setInversed(true);
-  // };
 
   return (
     <>
@@ -42,13 +32,14 @@ const Convertor = (): JSX.Element => {
         <form>
           <ConvertorRow
             inputValue={inversed ? amount / exchangeRates[to][from] : amount}
-            handleInputChange={handleFromAmountChange} // need to be handleFROM
+            handleInputChange={handleFromAmountChange}
             selectValue={to}
             selectOptions={cryptoValues}
             handleSelectChange={(e) => setTo(e.target.value)}
           />
           <ConvertorRow
             inputValue={inversed ? amount : amount * exchangeRates[to][from]}
+            prefix={from.toUpperCase()}
             handleInputChange={handleToAmountChange}
             selectValue={from}
             selectOptions={fiatValues}

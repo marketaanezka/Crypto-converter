@@ -4,6 +4,7 @@ import NumberFormat, { NumberFormatValues } from 'react-number-format';
 
 interface Props {
   inputValue: number;
+  prefix?: string;
   handleInputChange: (values: NumberFormatValues) => void;
   selectValue: string;
   selectOptions: CurrencyObject[];
@@ -12,6 +13,7 @@ interface Props {
 
 const ConvertorRow = ({
   inputValue,
+  prefix,
   handleInputChange,
   selectValue,
   selectOptions,
@@ -22,9 +24,9 @@ const ConvertorRow = ({
       <NumberFormat
         value={inputValue}
         thousandSeparator={true}
-        // onChange={handleInputChange}
         allowNegative={false}
         onValueChange={handleInputChange}
+        prefix={prefix ? prefix + ' ' : undefined}
       />
       <select
         name="currencyselect"
