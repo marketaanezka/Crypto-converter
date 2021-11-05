@@ -3,6 +3,7 @@ import { ExchangeRates } from '../../config/types';
 import { ExchangeRatesContext } from '../../config/ExchangeProvider';
 import { fiatValues, cryptoValues } from '../../config/data';
 import ConvertorRow from '../ConvertorRow';
+import { NumberFormatValues } from 'react-number-format';
 
 const Convertor = (): JSX.Element => {
   const [to, setTo] = useState('bitcoin');
@@ -13,15 +14,27 @@ const Convertor = (): JSX.Element => {
   const context = useContext(ExchangeRatesContext);
   const exchangeRates = context as ExchangeRates;
 
-  const handleFromAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(Number(e.target.value));
+  const handleFromAmountChange = (values: NumberFormatValues) => {
+    const { floatValue } = values;
+    if (floatValue) {
+      setAmount(floatValue);
+    }
     setInversed(false);
   };
 
-  const handleToAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(Number(e.target.value));
+  const handleToAmountChange = (values: NumberFormatValues) => {
+    const { floatValue } = values;
+    if (floatValue) {
+      setAmount(floatValue);
+    }
     setInversed(true);
   };
+
+  // const handleToAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const newAmount = Number(e.target.value.replaceAll(',', ''));
+  //   setAmount(newAmount);
+  //   setInversed(true);
+  // };
 
   return (
     <>
@@ -29,7 +42,7 @@ const Convertor = (): JSX.Element => {
         <form>
           <ConvertorRow
             inputValue={inversed ? amount / exchangeRates[to][from] : amount}
-            handleInputChange={handleFromAmountChange}
+            handleInputChange={handleFromAmountChange} // need to be handleFROM
             selectValue={to}
             selectOptions={cryptoValues}
             handleSelectChange={(e) => setTo(e.target.value)}

@@ -6,10 +6,8 @@ export const ExchangeRatesContext = createContext<ExchangeRates | null>(null);
 
 const ExchangeRatesProvider: FC = ({ children }) => {
   const [rates, setRates] = useState<ExchangeRates | null>(null);
-  console.log('provider', rates);
   useEffect(() => {
     getExchangeRate(URL_BASE, cryptoQuery, fiatQuery);
-    // console.log(rates);
   }, []);
 
   const getExchangeRate = async (
@@ -22,7 +20,6 @@ const ExchangeRatesProvider: FC = ({ children }) => {
         `${url}/price?ids=${crypto}&vs_currencies=${currency}`
       );
       const data = await response.json();
-      // console.log(data);
       setRates(data);
     } catch (err) {
       console.error('rejected', err);

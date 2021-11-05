@@ -1,11 +1,12 @@
 import React from 'react';
-import { currencyObject } from '../../config/types';
+import { CurrencyObject } from '../../config/types';
+import NumberFormat, { NumberFormatValues } from 'react-number-format';
 
 interface Props {
   inputValue: number;
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleInputChange: (values: NumberFormatValues) => void;
   selectValue: string;
-  selectOptions: currencyObject[];
+  selectOptions: CurrencyObject[];
   handleSelectChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
@@ -18,11 +19,12 @@ const ConvertorRow = ({
 }: Props): JSX.Element => {
   return (
     <div>
-      <input
-        type="text"
-        inputMode="numeric"
+      <NumberFormat
         value={inputValue}
-        onChange={handleInputChange}
+        thousandSeparator={true}
+        // onChange={handleInputChange}
+        allowNegative={false}
+        onValueChange={handleInputChange}
       />
       <select
         name="currencyselect"
