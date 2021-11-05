@@ -2,11 +2,11 @@ import React, { createContext, useState, FC, useEffect } from 'react';
 import { ExchangeRates } from './types';
 import { URL_BASE, fiatQuery, cryptoQuery } from './data';
 
-export const ExchangeRatesContext = createContext<ExchangeRates | string>({});
+export const ExchangeRatesContext = createContext<ExchangeRates | null>(null);
 
 const ExchangeRatesProvider: FC = ({ children }) => {
-  const [rates, setRates] = useState<ExchangeRates>({});
-
+  const [rates, setRates] = useState<ExchangeRates | null>(null);
+  console.log('provider', rates);
   useEffect(() => {
     getExchangeRate(URL_BASE, cryptoQuery, fiatQuery);
     // console.log(rates);

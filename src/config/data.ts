@@ -1,6 +1,6 @@
 export const URL_BASE = 'https://api.coingecko.com/api/v3/simple';
 
-const cryptoValues = [
+export const cryptoValues = [
   { name: 'Bitcoin', code: 'BTC' },
   { name: 'Ethereum', code: 'ETH' },
   { name: 'Tether', code: 'USDT' },
@@ -13,7 +13,7 @@ const cryptoValues = [
   { name: 'Vechain', code: 'VET' },
 ];
 
-const fiatValues = [
+export const fiatValues = [
   { name: 'Czech Koruna', code: 'czk' },
   { name: 'Pound Sterling', code: 'gbp' },
   { name: 'US Dollar', code: 'usd' },
@@ -24,7 +24,7 @@ const fiatValues = [
 ];
 
 const cryptoNames = cryptoValues.map((item) => item.name);
-export const cryptoQuery = cryptoNames.join();
-
 const fiatCodes = fiatValues.map((item) => item.code);
+
+export const cryptoQuery = cryptoNames.join();
 export const fiatQuery = fiatCodes.join();
