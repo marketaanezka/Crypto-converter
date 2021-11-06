@@ -3,7 +3,6 @@ import { ExchangeRates } from '../../config/types';
 import { ExchangeRatesContext } from '../../config/ExchangeProvider';
 import { fiatValues, cryptoValues } from '../../config/data';
 import ConvertorRow from '../ConvertorRow';
-import { NumberFormatValues } from 'react-number-format';
 
 const Convertor = (): JSX.Element => {
   const [to, setTo] = useState('bitcoin');
@@ -14,15 +13,23 @@ const Convertor = (): JSX.Element => {
   const context = useContext(ExchangeRatesContext);
   const exchangeRates = context as ExchangeRates;
 
-  const handleFromAmountChange = (values: NumberFormatValues) => {
-    const { floatValue } = values;
-    setAmount(floatValue ? floatValue : 0);
+  const handleFromInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newAmount = e.target.value.replaceAll(',', '');
+    console.log(newAmount, typeof newAmount);
+    setAmount(Number(newAmount === '' ? 0 : newAmount));
     setInversed(false);
   };
 
-  const handleToAmountChange = (values: NumberFormatValues) => {
-    const { floatValue } = values;
-    setAmount(floatValue ? floatValue : 0);
+  const handleToInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const noPrefix = e.target.value.split(' ')[1];
+    const validateAmount =
+      noPrefix == undefined || noPrefix === '' ? '0' : noPrefix;
+    const newAmount = validateAmount.replaceAll(',', '');
+
+    console.log(newAmount, typeof newAmount);
+    setAmount(
+      Number(newAmount === '' || newAmount == undefined ? 0 : newAmount)
+    );
     setInversed(true);
   };
 
@@ -32,18 +39,20 @@ const Convertor = (): JSX.Element => {
         <form>
           <ConvertorRow
             inputValue={inversed ? amount / exchangeRates[to][from] : amount}
-            handleInputChange={handleFromAmountChange}
+            handleInputChange={handleFromInputChange}
             selectValue={to}
             selectOptions={cryptoValues}
-            handleSelectChange={(e) => setTo(e.target.value)}
+            handleMuiSelectChange={(e) => {
+              setTo(e.target.value);
+            }}
           />
           <ConvertorRow
             inputValue={inversed ? amount : amount * exchangeRates[to][from]}
             prefix={from.toUpperCase()}
-            handleInputChange={handleToAmountChange}
+            handleInputChange={handleToInputChange}
             selectValue={from}
             selectOptions={fiatValues}
-            handleSelectChange={(e) => setFrom(e.target.value)}
+            handleMuiSelectChange={(e) => setFrom(e.target.value)}
           />
           <br />
         </form>

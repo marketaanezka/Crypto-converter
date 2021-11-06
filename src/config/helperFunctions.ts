@@ -6,3 +6,15 @@ export const formatNumber = (number: number): string => {
   const formattedNumber = before + decimal;
   return formattedNumber;
 };
+
+// const handleFromAmountChange = (values: NumberFormatValues) => {
+//   const { floatValue } = values;
+//   setAmount(floatValue ? floatValue : 0);
+//   setInversed(false);
+// };
+
+// const handleToAmountChange = (values: NumberFormatValues) => {
+//   const { floatValue } = values;
+//   setAmount(floatValue ? floatValue : 0);
+//   setInversed(true);
+// };

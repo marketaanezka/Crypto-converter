@@ -1,16 +1,16 @@
 export const URL_BASE = 'https://api.coingecko.com/api/v3/simple';
 
 export const cryptoValues = [
-  { name: 'Bitcoin', code: 'BTC' },
-  { name: 'Ethereum', code: 'ETH' },
-  { name: 'Tether', code: 'USDT' },
-  { name: 'Cardano', code: 'ADA' },
-  { name: 'Solana', code: 'SOL' },
-  { name: 'Polkadot', code: 'DOT' },
-  { name: 'Ripple', code: 'XRP' },
-  { name: 'Usd-coin', code: 'USDC' },
-  { name: 'Chainlink', code: 'LINK' },
-  { name: 'Vechain', code: 'VET' },
+  { name: 'Bitcoin', code: 'bitcoin' },
+  { name: 'Ethereum', code: 'ethereum' },
+  { name: 'Tether', code: 'tether' },
+  { name: 'Cardano', code: 'cardano' },
+  { name: 'Solana', code: 'solana' },
+  { name: 'Polkadot', code: 'polkadot' },
+  { name: 'Ripple', code: 'ripple' },
+  { name: 'Usd-coin', code: 'usd-coin' },
+  { name: 'Chainlink', code: 'chainlink' },
+  { name: 'Vechain', code: 'vechain' },
 ];
 
 export const fiatValues = [

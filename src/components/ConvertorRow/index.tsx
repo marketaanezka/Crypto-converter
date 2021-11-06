@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { CurrencyObject } from '../../config/types';
-import NumberFormat, { NumberFormatValues } from 'react-number-format';
+import { TextField, Select, SelectChangeEvent, MenuItem } from '@mui/material';
+import NumberFormat from 'react-number-format';
 
 interface Props {
   inputValue: number;
   prefix?: string;
-  handleInputChange: (values: NumberFormatValues) => void;
+  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selectValue: string;
   selectOptions: CurrencyObject[];
-  handleSelectChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  handleMuiSelectChange: (
+    event: SelectChangeEvent<string>,
+    child: ReactNode
+  ) => void;
 }
 
 const ConvertorRow = ({
   inputValue,
-  prefix,
   handleInputChange,
   selectValue,
   selectOptions,
-  handleSelectChange,
+  handleMuiSelectChange,
 }: Props): JSX.Element => {
   return (
     <div>
@@ -25,23 +28,24 @@ const ConvertorRow = ({
         value={inputValue}
         thousandSeparator={true}
         allowNegative={false}
-        onValueChange={handleInputChange}
-        prefix={prefix ? prefix + ' ' : undefined}
+        onChange={handleInputChange}
+        customInput={TextField}
       />
-      <select
+      <Select
         name="currencyselect"
         id="currencyselect"
         value={selectValue}
-        onChange={handleSelectChange}
+        onChange={handleMuiSelectChange}
       >
-        {selectOptions.map((fiat) => {
+        {selectOptions.map((option) => {
           return (
-            <option key={fiat.name} value={fiat.code}>
-              {fiat.name}
-            </option>
+            <MenuItem key={option.name} value={option.code}>
+              {option.name}
+            </MenuItem>
           );
         })}
-      </select>
+        {/* </select> */}
+      </Select>
     </div>
   );
 };
