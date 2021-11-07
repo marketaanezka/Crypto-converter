@@ -5,37 +5,40 @@ import NumberFormat from 'react-number-format';
 
 interface Props {
   inputValue: number;
-  prefix?: string;
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleAmountChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selectValue: string;
   selectOptions: CurrencyObject[];
-  handleMuiSelectChange: (
+  handleCurrencyChange: (
     event: SelectChangeEvent<string>,
     child: ReactNode
   ) => void;
+  currencyLabel: string;
 }
 
 const ConvertorRow = ({
   inputValue,
-  handleInputChange,
+  handleAmountChange,
   selectValue,
   selectOptions,
-  handleMuiSelectChange,
+  handleCurrencyChange,
+  currencyLabel,
 }: Props): JSX.Element => {
   return (
-    <div>
+    <div style={{ padding: '20px' }}>
       <NumberFormat
         value={inputValue}
         thousandSeparator={true}
         allowNegative={false}
-        onChange={handleInputChange}
+        allowLeadingZeros={false}
+        onChange={handleAmountChange}
         customInput={TextField}
+        label={currencyLabel}
       />
       <Select
         name="currencyselect"
         id="currencyselect"
         value={selectValue}
-        onChange={handleMuiSelectChange}
+        onChange={handleCurrencyChange}
       >
         {selectOptions.map((option) => {
           return (

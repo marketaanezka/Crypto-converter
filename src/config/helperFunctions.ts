@@ -7,6 +7,12 @@ export const formatNumber = (number: number): string => {
   return formattedNumber;
 };
 
+export const formatAmount = (numberAsString: string): number => {
+  const formatString = numberAsString.replaceAll(',', '');
+  const newAmount = Number(formatString === '' ? '0' : formatString);
+  return newAmount;
+};
+
 // const handleFromAmountChange = (values: NumberFormatValues) => {
 //   const { floatValue } = values;
 //   setAmount(floatValue ? floatValue : 0);

@@ -8,9 +8,3 @@ export interface CurrencyObject {
   name: string;
   code: string;
 }
-
-export interface InputValueObject {
-  floatValue: number;
-  formattedValue: string;
-  value: string;
-}
