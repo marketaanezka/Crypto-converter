@@ -15,7 +15,7 @@ interface Props {
   currencyLabel: string;
 }
 
-const ConvertorRow = ({
+const ConverterRow = ({
   inputValue,
   handleAmountChange,
   selectValue,
@@ -53,4 +53,4 @@ const ConvertorRow = ({
   );
 };
 
-export default ConvertorRow;
+export default ConverterRow;

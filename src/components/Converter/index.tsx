@@ -3,9 +3,9 @@ import { ExchangeRates } from '../../config/types';
 import { ExchangeRatesContext } from '../../config/ExchangeProvider';
 import { fiatValues, cryptoValues } from '../../config/data';
 import { formatAmount } from '../../config/helperFunctions';
-import ConvertorRow from '../ConvertorRow';
+import ConverterRow from '../ConverterRow';
 
-const Convertor = (): JSX.Element => {
+const Converter = (): JSX.Element => {
   const [fromCrypto, setFromCrypto] = useState('bitcoin');
   const [toFiat, setToFiat] = useState('usd');
   const [inversed, setInversed] = useState(false);
@@ -28,7 +28,7 @@ const Convertor = (): JSX.Element => {
     <>
       {exchangeRates !== null ? (
         <>
-          <ConvertorRow
+          <ConverterRow
             inputValue={
               inversed ? amount / exchangeRates[fromCrypto][toFiat] : amount
             }
@@ -41,7 +41,7 @@ const Convertor = (): JSX.Element => {
             currencyLabel={fromCrypto}
           />
           <p>=</p>
-          <ConvertorRow
+          <ConverterRow
             inputValue={
               inversed ? amount : amount * exchangeRates[fromCrypto][toFiat]
             }
@@ -60,4 +60,4 @@ const Convertor = (): JSX.Element => {
   );
 };
 
-export default Convertor;
+export default Converter;

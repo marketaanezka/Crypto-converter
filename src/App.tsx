@@ -1,10 +1,10 @@
 import React from 'react';
-import Convertor from './components/Convertor';
+import Converter from './components/Converter';
 
 const App = (): JSX.Element => {
   return (
     <div className="App">
-      <Convertor />
+      <Converter />
     </div>
   );
 };
