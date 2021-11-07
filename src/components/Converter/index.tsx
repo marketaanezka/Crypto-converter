@@ -4,6 +4,7 @@ import { ExchangeRatesContext } from '../../config/ExchangeProvider';
 import { fiatValues, cryptoValues } from '../../config/data';
 import { formatAmount } from '../../config/helperFunctions';
 import ConverterRow from '../ConverterRow';
+import { Card, Typography } from '@mui/material';
 
 const Converter = (): JSX.Element => {
   const [fromCrypto, setFromCrypto] = useState('bitcoin');
@@ -25,7 +26,15 @@ const Converter = (): JSX.Element => {
   };
 
   return (
-    <>
+    <Card
+      variant="outlined"
+      sx={{
+        p: '20px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
       {exchangeRates !== null ? (
         <>
           <ConverterRow
@@ -40,7 +49,7 @@ const Converter = (): JSX.Element => {
             }}
             currencyLabel={fromCrypto}
           />
-          <p>=</p>
+          <Typography variant="h4">=</Typography>
           <ConverterRow
             inputValue={
               inversed ? amount : amount * exchangeRates[fromCrypto][toFiat]
@@ -51,12 +60,11 @@ const Converter = (): JSX.Element => {
             handleCurrencyChange={(e) => setToFiat(e.target.value)}
             currencyLabel={toFiat.toUpperCase()}
           />
-          <br />
         </>
       ) : (
         <p>Loading...</p>
       )}
-    </>
+    </Card>
   );
 };
 
