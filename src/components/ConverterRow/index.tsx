@@ -37,7 +37,7 @@ const ConverterRow = ({
         label={currencyLabel}
         sx={{ width: '60%' }}
       />
-      <Icon code={'cad'} />
+
       <Select
         sx={{ width: '40%' }}
         name="currencyselect"
@@ -49,7 +49,7 @@ const ConverterRow = ({
           console.log(option);
           return (
             <MenuItem key={option.name} value={option.code}>
-              {/* <Icon code={option.code} /> */}
+              <Icon code={option.code} />
               {option.name}
             </MenuItem>
           );
