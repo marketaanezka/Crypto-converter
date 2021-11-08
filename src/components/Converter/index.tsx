@@ -2,10 +2,10 @@ import React, { useContext, useState } from 'react';
 import { ExchangeRates } from '../../config/types';
 import { ExchangeRatesContext } from '../../config/ExchangeProvider';
 import { fiatValues, cryptoValues } from '../../config/data';
-import { ConverterWrapper } from './styled';
+import { ConverterWrapper, Equals } from './styled';
 import { formatAmount } from '../../config/helperFunctions';
 import ConverterRow from '../ConverterRow';
-import { Card, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 const Converter = (): JSX.Element => {
   const [fromCrypto, setFromCrypto] = useState('bitcoin');
@@ -42,7 +42,7 @@ const Converter = (): JSX.Element => {
             }}
             currencyLabel={fromCrypto}
           />
-          <Typography variant="h4">=</Typography>
+          <Equals>=</Equals>
           <ConverterRow
             inputValue={
               inversed ? amount : amount * exchangeRates[fromCrypto][toFiat]
