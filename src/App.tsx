@@ -1,6 +1,6 @@
 import React from 'react';
 import Converter from './components/Converter';
-import { AppWrapper } from './components/AppWrapper/styles';
+import { AppWrapper } from './components/AppWrapper/styled';
 import Theme from './common/ThemeProvider';
 
 const App = (): JSX.Element => {

@@ -15,6 +15,8 @@ declare module 'styled-components' {
     margin: {
       [key: string]: string;
     };
+    borderRadius: string;
+    cardShadow: string;
   }
 }
 
@@ -25,7 +27,7 @@ export const defaultTheme: DefaultTheme = {
     black: '#323C46',
     gray: '#b8bdc4',
     lightBlue: '#f0f5fa',
-    primaryBg: '#f0f5fa',
+    lightBg: '#f0f5fa',
   },
   fontSize: {
     xs: '0.75rem', //.12
@@ -37,13 +39,15 @@ export const defaultTheme: DefaultTheme = {
     quote: '2rem', // 32
   },
   padding: {
-    small: '0.5rem',
-    medium: '1rem',
-    large: '1.5rem',
+    small: '1rem',
+    medium: '1.5rem',
+    large: '2rem',
   },
   margin: {
     small: '0.5rem',
     medium: '1rem',
     large: '1.5rem',
   },
+  borderRadius: '8px',
+  cardShadow: 'rgba(35, 55, 80, 0.3) 0px 6px 12px',
 };

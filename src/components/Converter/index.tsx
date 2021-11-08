@@ -5,7 +5,6 @@ import { fiatValues, cryptoValues } from '../../config/data';
 import { ConverterWrapper, Equals } from './styled';
 import { formatAmount } from '../../config/helperFunctions';
 import ConverterRow from '../ConverterRow';
-import { Typography } from '@mui/material';
 
 const Converter = (): JSX.Element => {
   const [fromCrypto, setFromCrypto] = useState('bitcoin');
