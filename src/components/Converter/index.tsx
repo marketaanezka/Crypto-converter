@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { ExchangeRates } from '../../config/types';
 import { ExchangeRatesContext } from '../../config/ExchangeProvider';
 import { fiatValues, cryptoValues } from '../../config/data';
+import { ConverterWrapper } from './styled';
 import { formatAmount } from '../../config/helperFunctions';
 import ConverterRow from '../ConverterRow';
 import { Card, Typography } from '@mui/material';
@@ -26,15 +27,7 @@ const Converter = (): JSX.Element => {
   };
 
   return (
-    <Card
-      variant="outlined"
-      sx={{
-        p: '20px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-    >
+    <ConverterWrapper>
       {exchangeRates !== null ? (
         <>
           <ConverterRow
@@ -64,7 +57,7 @@ const Converter = (): JSX.Element => {
       ) : (
         <p>Loading...</p>
       )}
-    </Card>
+    </ConverterWrapper>
   );
 };
 

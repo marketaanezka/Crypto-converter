@@ -1,12 +1,7 @@
 import React, { ReactNode } from 'react';
 import { CurrencyObject } from '../../config/types';
-import {
-  TextField,
-  Select,
-  SelectChangeEvent,
-  MenuItem,
-  Box,
-} from '@mui/material';
+import { TextField, Select, SelectChangeEvent, MenuItem } from '@mui/material';
+import { RowWrapper } from './styled';
 import NumberFormat from 'react-number-format';
 
 interface Props {
@@ -30,7 +25,7 @@ const ConverterRow = ({
   currencyLabel,
 }: Props): JSX.Element => {
   return (
-    <Box sx={{ width: '100%' }}>
+    <RowWrapper>
       <NumberFormat
         value={inputValue}
         thousandSeparator={true}
@@ -55,9 +50,8 @@ const ConverterRow = ({
             </MenuItem>
           );
         })}
-        {/* </select> */}
       </Select>
-    </Box>
+    </RowWrapper>
   );
 };
 
