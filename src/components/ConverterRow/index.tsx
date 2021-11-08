@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { CurrencyObject } from '../../config/types';
 import { TextField, Select, SelectChangeEvent, MenuItem } from '@mui/material';
 import { RowWrapper } from './styled';
+import Icon from '../Icon';
 import NumberFormat from 'react-number-format';
 
 interface Props {
@@ -36,6 +37,7 @@ const ConverterRow = ({
         label={currencyLabel}
         sx={{ width: '60%' }}
       />
+      <Icon code={'cad'} />
       <Select
         sx={{ width: '40%' }}
         name="currencyselect"
@@ -44,8 +46,10 @@ const ConverterRow = ({
         onChange={handleCurrencyChange}
       >
         {selectOptions.map((option) => {
+          console.log(option);
           return (
             <MenuItem key={option.name} value={option.code}>
+              {/* <Icon code={option.code} /> */}
               {option.name}
             </MenuItem>
           );
