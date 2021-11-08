@@ -9,6 +9,9 @@ export const ConverterWrapper = styled.section`
   justify-content: center;
   width: 500px;
   max-width: calc(100% - 60px);
+  background-color: #fff;
+  box-shadow: rgba(35, 55, 80, 0.3) 0px 6px 12px;
+  border-radius: 4px;
 
   @media (min-width: 768px) {
     flex-direction: row;
