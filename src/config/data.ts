@@ -28,3 +28,21 @@ const fiatCodes = fiatValues.map((item) => item.code);
 
 export const cryptoQuery = cryptoNames.join();
 export const fiatQuery = fiatCodes.join();
+
+const cryptoSymbols: { [key: string]: string } = {
+  bitcoin: 'BTC',
+  cardano: 'ADA',
+  ethereum: 'ETH',
+  chainlink: 'LINK',
+  polkadot: 'DOT',
+  ripple: 'XRP',
+  solana: 'SOL',
+  tether: 'USDT',
+  usdcoin: 'USDC',
+  vechain: 'VET',
+};
+
+export const getSymbol = (cryptoName: string): string => {
+  const formatCrypto = cryptoName.replace('-', '');
+  return cryptoSymbols[formatCrypto];
+};

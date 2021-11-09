@@ -45,7 +45,6 @@ const ConverterRow = ({
         onChange={handleCurrencyChange}
       >
         {selectOptions.map((option) => {
-          console.log(option);
           return (
             <MenuItem key={option.name} value={option.code}>
               <Icon code={option.code} />
