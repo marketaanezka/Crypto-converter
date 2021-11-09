@@ -37,7 +37,6 @@ const ConverterRow = ({
         label={currencyLabel}
         sx={{ width: '60%' }}
       />
-
       <Select
         sx={{ width: '40%' }}
         name="currencyselect"

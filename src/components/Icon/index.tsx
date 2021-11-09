@@ -1,4 +1,5 @@
 import React from 'react';
+import { IconWrapper } from './styled';
 import { ReactComponent as Canada } from '../../assets/flags/cad.svg';
 import { ReactComponent as China } from '../../assets/flags/cny.svg';
 import { ReactComponent as Czechia } from '../../assets/flags/czk.svg';
@@ -48,7 +49,11 @@ type Props = {
 const Icon = ({ code }: Props): JSX.Element => {
   const stringCode = code.replaceAll('-', '');
   const Svg = icons[stringCode];
-  return <Svg width={20} height={20} />;
+  return (
+    <IconWrapper>
+      <Svg width={20} height={20} />
+    </IconWrapper>
+  );
 };
 
 export default Icon;

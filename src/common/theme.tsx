@@ -51,3 +51,10 @@ export const defaultTheme: DefaultTheme = {
   borderRadius: '8px',
   cardShadow: 'rgba(35, 55, 80, 0.3) 0px 6px 12px',
 };
+
+export const centerBlock = `
+display: flex;
+justify-content: center;
+align-items: center;
+
+`;
