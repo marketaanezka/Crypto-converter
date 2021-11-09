@@ -23,3 +23,10 @@ export const RowWrapper = styled.div`
     }
   }
 `;
+
+export const SelectOptionName = styled.span`
+  height: auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+`;

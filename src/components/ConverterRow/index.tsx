@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { CurrencyObject } from '../../config/types';
 import { TextField, Select, SelectChangeEvent, MenuItem } from '@mui/material';
-import { RowWrapper } from './styled';
+import { RowWrapper, SelectOptionName } from './styled';
 import Icon from '../Icon';
 import NumberFormat from 'react-number-format';
 
@@ -49,7 +49,7 @@ const ConverterRow = ({
           return (
             <MenuItem key={option.name} value={option.code}>
               <Icon code={option.code} />
-              {option.name}
+              <SelectOptionName>{option.name}</SelectOptionName>
             </MenuItem>
           );
         })}
