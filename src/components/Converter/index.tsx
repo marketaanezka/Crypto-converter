@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ExchangeRates } from '../../config/types';
 import { ExchangeRatesContext } from '../../config/ExchangeProvider';
 import { fiatValues, cryptoValues, getSymbol } from '../../config/data';
 import { ConverterWrapper, Equals } from './styled';
 import { formatAmount } from '../../config/helperFunctions';
 import ConverterRow from '../ConverterRow';
+import useRatesStore from '../../state/exchangeRates';
 
 const Converter = (): JSX.Element => {
   const [fromCrypto, setFromCrypto] = useState('bitcoin');
@@ -25,6 +26,12 @@ const Converter = (): JSX.Element => {
     setInversed(true);
   };
 
+  const zustandState = useRatesStore((state) => state.rates);
+  const setZustandState = useRatesStore((state) => state.getRates);
+  useEffect(() => {
+    setZustandState;
+    console.log(zustandState);
+  }, [zustandState]);
   return (
     <ConverterWrapper>
       {exchangeRates !== null ? (

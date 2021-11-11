@@ -21,7 +21,6 @@ const ExchangeRatesProvider: FC = ({ children }) => {
       );
       const data = await response.json();
       setRates(data);
-      console.log(data);
     } catch (err) {
       console.error('rejected', err);
     }

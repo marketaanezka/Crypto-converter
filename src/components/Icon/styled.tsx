@@ -3,5 +3,5 @@ import { centerBlock } from '../../common/theme';
 
 export const IconWrapper = styled.div`
   ${centerBlock}
-  margin-right: 5px;
+  margin-right: 6px;
 `;
