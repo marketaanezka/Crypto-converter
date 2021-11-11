@@ -1,6 +1,6 @@
 type Rate = { [key: string]: number };
 
-export interface ExchangeRates {
+export interface CryptoData {
   [key: string]: Rate;
 }
 

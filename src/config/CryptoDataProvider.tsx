@@ -1,11 +1,11 @@
 import React, { createContext, useState, FC, useEffect } from 'react';
-import { ExchangeRates } from './types';
+import { CryptoData } from './types';
 import { URL_BASE, fiatQuery, cryptoQuery } from './data';
 
-export const ExchangeRatesContext = createContext<ExchangeRates | null>(null);
+export const CryptoDataContext = createContext<CryptoData | null>(null);
 
-const ExchangeRatesProvider: FC = ({ children }) => {
-  const [rates, setRates] = useState<ExchangeRates | null>(null);
+const CryptoDataProvider: FC = ({ children }) => {
+  const [rates, setRates] = useState<CryptoData | null>(null);
   useEffect(() => {
     getExchangeRate(URL_BASE, cryptoQuery, fiatQuery);
   }, []);
@@ -17,9 +17,10 @@ const ExchangeRatesProvider: FC = ({ children }) => {
   ): Promise<void> => {
     try {
       const response = await fetch(
-        `${url}/price?ids=${crypto}&vs_currencies=${currency}`
+        `${url}/price?ids=${crypto}&vs_currencies=${currency}&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true`
       );
       const data = await response.json();
+      console.log(data);
       setRates(data);
     } catch (err) {
       console.error('rejected', err);
@@ -27,10 +28,10 @@ const ExchangeRatesProvider: FC = ({ children }) => {
   };
 
   return (
-    <ExchangeRatesContext.Provider value={rates}>
+    <CryptoDataContext.Provider value={rates}>
       {children}
-    </ExchangeRatesContext.Provider>
+    </CryptoDataContext.Provider>
   );
 };
 
-export default ExchangeRatesProvider;
+export default CryptoDataProvider;

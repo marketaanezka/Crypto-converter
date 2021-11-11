@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import ExchangeRatesProvider from './config/ExchangeProvider';
+import CryptoDataProvider from './config/CryptoDataProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ExchangeRatesProvider>
+    <CryptoDataProvider>
       <App />
-    </ExchangeRatesProvider>
+    </CryptoDataProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
