@@ -1,20 +1,22 @@
 import React, { useContext } from 'react';
-import { CryptoData } from '../../config/types';
+import { CryptoDataObject } from '../../config/types';
 import { CryptoDataContext } from '../../config/CryptoDataProvider';
-import {
-  sortObject,
-  objToArray,
-  nFormatter,
-} from '../../config/helperFunctions';
+import { sortObject, objToArray } from '../../config/helperFunctions';
 
 const Dashboard = (): JSX.Element => {
   const context = useContext(CryptoDataContext);
-  const cryptoInfo = context as CryptoData;
+  const cryptoInfo = context as CryptoDataObject;
   const currency = 'czk';
 
-  console.log(nFormatter(6777270798355.02));
-
   const finalData = cryptoInfo ? objToArray(sortObject(cryptoInfo)) : null;
+  console.log(finalData);
+
+  const newArrayfromObject = finalData
+    ? finalData.map((item) => {
+        return { crypto: item[0], ...item[1] };
+      })
+    : null;
+  console.log(newArrayfromObject);
 
   return (
     <>

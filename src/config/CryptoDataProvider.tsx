@@ -1,11 +1,11 @@
 import React, { createContext, useState, FC, useEffect } from 'react';
-import { CryptoData } from './types';
+import { CryptoDataObject } from './types';
 import { URL_BASE, fiatQuery, cryptoQuery } from './data';
 
-export const CryptoDataContext = createContext<CryptoData | null>(null);
+export const CryptoDataContext = createContext<CryptoDataObject | null>(null);
 
 const CryptoDataProvider: FC = ({ children }) => {
-  const [rates, setRates] = useState<CryptoData | null>(null);
+  const [rates, setRates] = useState<CryptoDataObject | null>(null);
   useEffect(() => {
     getExchangeRate(URL_BASE, cryptoQuery, fiatQuery);
   }, []);
@@ -20,7 +20,6 @@ const CryptoDataProvider: FC = ({ children }) => {
         `${url}/price?ids=${crypto}&vs_currencies=${currency}&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true`
       );
       const data = await response.json();
-      console.log(data);
       setRates(data);
     } catch (err) {
       console.error('rejected', err);

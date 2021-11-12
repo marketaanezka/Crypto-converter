@@ -1,3 +1,5 @@
+import { Rate, CryptoDataObject, FormattedCryptoObject } from './types';
+
 export const formatNumber = (number: number): string => {
   const str = number.toString();
   const before = str.split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -41,3 +43,10 @@ export const nFormatter = (num: number): number | string => {
   }
   return num;
 };
+
+/*eslint-disable */
+//@ts-ignore
+export const arrayFromAPIObject = (array): FormattedCryptoObject =>
+  array.map((item: Array<{ [key: string]: number }>) => {
+    return { crypto: item[0], ...item[1] };
+  });

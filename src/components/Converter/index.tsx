@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { CryptoData } from '../../config/types';
+import { CryptoDataObject } from '../../config/types';
 import { CryptoDataContext } from '../../config/CryptoDataProvider';
 import { fiatValues, cryptoValues, getSymbol } from '../../config/data';
 import { ConverterWrapper, Equals } from './styled';
@@ -13,7 +13,7 @@ const Converter = (): JSX.Element => {
   const [amount, setAmount] = useState(1);
 
   const context = useContext(CryptoDataContext);
-  const exchangeRates = context as CryptoData;
+  const exchangeRates = context as CryptoDataObject;
 
   const handleFromInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(formatAmount(e.target.value));
