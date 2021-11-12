@@ -13,14 +13,31 @@ export const formatAmount = (numberAsString: string): number => {
   return newAmount;
 };
 
-// const handleFromAmountChange = (values: NumberFormatValues) => {
-//   const { floatValue } = values;
-//   setAmount(floatValue ? floatValue : 0);
-//   setInversed(false);
-// };
+//https://stackoverflow.com/questions/9658690/is-there-a-way-to-sort-order-keys-in-javascript-objects
+export const sortObject = (obj: { [key: string]: { [key: string]: number } }) =>
+  Object.keys(obj)
+    .sort()
+    .reduce(
+      (acc, key) => ({
+        ...acc,
+        [key]: obj[key],
+      }),
+      {}
+    );
 
-// const handleToAmountChange = (values: NumberFormatValues) => {
-//   const { floatValue } = values;
-//   setAmount(floatValue ? floatValue : 0);
-//   setInversed(true);
-// };
+export const objToArray = (obj: {
+  [key: string]: { [key: string]: number };
+}): [string, { [key: string]: number }][] => Object.entries(obj);
+
+export const nFormatter = (num: number): number | string => {
+  if (num >= 1000000000000) {
+    return (num / 1000000000000).toFixed(1).replace(/\.0$/, '') + 'trillion';
+  }
+  if (num >= 1000000000) {
+    return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + 'bil';
+  }
+  if (num >= 1000000) {
+    return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'mil';
+  }
+  return num;
+};

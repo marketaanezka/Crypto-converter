@@ -1,4 +1,4 @@
-type Rate = { [key: string]: number };
+export type Rate = { [key: string]: number };
 
 export interface CryptoData {
   [key: string]: Rate;
