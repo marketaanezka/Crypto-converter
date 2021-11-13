@@ -1,36 +1,31 @@
 import React, { useContext } from 'react';
 import { CryptoDataObject } from '../../config/types';
 import { CryptoDataContext } from '../../config/CryptoDataProvider';
-import { sortObject, objToArray } from '../../config/helperFunctions';
+import { formatAPIdata } from '../../config/helperFunctions';
 
 const Dashboard = (): JSX.Element => {
   const context = useContext(CryptoDataContext);
   const cryptoInfo = context as CryptoDataObject;
-  const currency = 'czk';
+  const currency = 'jpy';
 
-  const finalData = cryptoInfo ? objToArray(sortObject(cryptoInfo)) : null;
-  console.log(finalData);
+  console.log('context received to dashboard', cryptoInfo);
 
-  const newArrayfromObject = finalData
-    ? finalData.map((item) => {
-        return { crypto: item[0], ...item[1] };
-      })
-    : null;
+  const newArrayfromObject = cryptoInfo ? formatAPIdata(cryptoInfo) : null;
   console.log(newArrayfromObject);
 
   return (
     <>
-      {finalData !== null ? (
+      {newArrayfromObject !== null ? (
         <pre>
-          {finalData.map((entry) => {
+          {newArrayfromObject.map((entry) => {
             return (
-              <div key={entry[0]}>
-                <h4>{entry[0]}</h4>
+              <div key={entry.crypto}>
+                <h4>{entry.crypto}</h4>
                 <span>{currency}</span>
-                <span>{entry[1][currency]} </span>
-                <span>{entry[1][`${currency}_24h_change`]} </span>
-                <span>{entry[1][`${currency}_24h_vol`]} </span>
-                <span>{entry[1][`${currency}_market_cap`]} </span>
+                <span>{entry[currency]} </span>
+                <span>{entry[`${currency}_24h_change`]} </span>
+                <span>{entry[`${currency}_24h_vol`]} </span>
+                <span>{entry[`${currency}_market_cap`]} </span>
               </div>
             );
           })}

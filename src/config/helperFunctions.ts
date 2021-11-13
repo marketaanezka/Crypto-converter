@@ -1,4 +1,4 @@
-import { Rate, CryptoDataObject, FormattedCryptoObject } from './types';
+import { CryptoDataObject, CryptoDataArray, Rate } from './types';
 
 export const formatNumber = (number: number): string => {
   const str = number.toString();
@@ -15,22 +15,6 @@ export const formatAmount = (numberAsString: string): number => {
   return newAmount;
 };
 
-//https://stackoverflow.com/questions/9658690/is-there-a-way-to-sort-order-keys-in-javascript-objects
-export const sortObject = (obj: { [key: string]: { [key: string]: number } }) =>
-  Object.keys(obj)
-    .sort()
-    .reduce(
-      (acc, key) => ({
-        ...acc,
-        [key]: obj[key],
-      }),
-      {}
-    );
-
-export const objToArray = (obj: {
-  [key: string]: { [key: string]: number };
-}): [string, { [key: string]: number }][] => Object.entries(obj);
-
 export const nFormatter = (num: number): number | string => {
   if (num >= 1000000000000) {
     return (num / 1000000000000).toFixed(1).replace(/\.0$/, '') + 'trillion';
@@ -44,9 +28,20 @@ export const nFormatter = (num: number): number | string => {
   return num;
 };
 
-/*eslint-disable */
-//@ts-ignore
-export const arrayFromAPIObject = (array): FormattedCryptoObject =>
-  array.map((item: Array<{ [key: string]: number }>) => {
-    return { crypto: item[0], ...item[1] };
+//https://stackoverflow.com/questions/9658690/is-there-a-way-to-sort-order-keys-in-javascript-objects
+export const formatAPIdata = (data: CryptoDataObject): CryptoDataArray => {
+  const sortedObj = Object.keys(data)
+    .sort()
+    .reduce(
+      (acc, key) => ({
+        ...acc,
+        [key]: data[key],
+      }),
+      {}
+    );
+  const sortedArray = Object.entries(sortedObj);
+  const formattedArray = sortedArray.map((item) => {
+    return { crypto: item[0], ...(item[1] as Rate) };
   });
+  return formattedArray;
+};
