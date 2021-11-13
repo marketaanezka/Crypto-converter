@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { defaultTheme, centerBlock } from '../../common/theme';
 import { device } from '../../common/device';
+import { defaultTheme, centerBlock } from '../../common/theme';
 
-export const ConverterWrapper = styled.section`
+export const DashboardWrapper = styled.section`
   margin: 0 auto;
   padding: ${defaultTheme.padding.medium};
   ${centerBlock}
@@ -12,7 +12,6 @@ export const ConverterWrapper = styled.section`
   background-color: ${defaultTheme.color.white};
   box-shadow: ${defaultTheme.cardShadow};
   border-radius: ${defaultTheme.borderRadius};
-  margin-bottom: ${defaultTheme.margin.medium};
 
   @media ${device.sm} {
     padding: ${defaultTheme.padding.large};
@@ -24,12 +23,4 @@ export const ConverterWrapper = styled.section`
     width: 800px;
     max-width: 800px;
   }
-`;
-
-export const Equals = styled.div`
-  height: 32px;
-  display: table-cell;
-  line-height: 27px;
-  font-size: 32px;
-  margin: 0.5rem 1.5rem;
 `;
