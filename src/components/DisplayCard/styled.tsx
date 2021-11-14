@@ -5,7 +5,7 @@ import { defaultTheme } from '../../common/theme';
 interface Props {
   up: boolean;
 }
-export const DisplayCard = styled.article`
+export const Card = styled.article`
   padding: ${defaultTheme.padding.medium};
   background-color: inherit;
   border-bottom: 1px solid ${defaultTheme.color.gray};
