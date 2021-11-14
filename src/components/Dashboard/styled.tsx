@@ -4,7 +4,6 @@ import { defaultTheme, centerBlock } from '../../common/theme';
 
 export const DashboardWrapper = styled.section`
   margin: 0 auto;
-  padding: ${defaultTheme.padding.medium};
   ${centerBlock}
   flex-direction: column;
   width: 500px;
@@ -12,10 +11,6 @@ export const DashboardWrapper = styled.section`
   background-color: ${defaultTheme.color.white};
   box-shadow: ${defaultTheme.cardShadow};
   border-radius: ${defaultTheme.borderRadius};
-
-  @media ${device.sm} {
-    padding: ${defaultTheme.padding.large};
-  }
 
   @media ${device.md} {
     flex-direction: row;
