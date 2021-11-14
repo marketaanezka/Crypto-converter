@@ -16,7 +16,7 @@ export const Card = styled.article`
   }
 `;
 
-export const CardHeader = styled.div`
+export const CardHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;

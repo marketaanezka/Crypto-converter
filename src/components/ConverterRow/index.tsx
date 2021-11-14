@@ -35,10 +35,12 @@ const ConverterRow = ({
         onChange={handleAmountChange}
         customInput={TextField}
         label={currencyLabel}
-        sx={{ width: '60%' }}
+        sx={{ width: ['60%', '60%', '50%'] }}
       />
       <Select
-        sx={{ width: '40%' }}
+        sx={{
+          width: ['40%', '40%', '50%'],
+        }}
         name="currencyselect"
         id="currencyselect"
         value={selectValue}
@@ -46,7 +48,11 @@ const ConverterRow = ({
       >
         {selectOptions.map((option) => {
           return (
-            <MenuItem key={option.name} value={option.code}>
+            <MenuItem
+              key={option.name}
+              value={option.code}
+              sx={{ display: 'flex', alignItems: 'center' }}
+            >
               <Icon code={option.code} />
               <SelectOptionName>{option.name}</SelectOptionName>
             </MenuItem>

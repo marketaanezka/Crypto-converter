@@ -16,7 +16,7 @@ import {
 } from './styled';
 import Icon from '../Icon';
 import { getSymbol } from '../../config/data';
-import { formatNumber } from '../../config/helperFunctions';
+import { formatNumber, intlNumberFormat } from '../../utils/format-number';
 
 interface Props {
   cryptoName: string;
@@ -34,12 +34,7 @@ const DisplayCard = ({
   cryptoVolume,
   cryptoCap,
   currency,
-}: Props) => {
-  const numberFormat = (value: number) =>
-    new Intl.NumberFormat('en-EN', {
-      style: 'currency',
-      currency: currency,
-    }).format(value);
+}: Props): JSX.Element => {
   return (
     <Card key={cryptoName}>
       <CardHeader>
@@ -49,8 +44,7 @@ const DisplayCard = ({
           <CryptoName>{cryptoName}</CryptoName>
         </CardHeaderLeft>
         <CardHeaderRight>
-          <Price>{numberFormat(cryptoPrice)} </Price>
-
+          <Price>{intlNumberFormat(cryptoPrice, currency)} </Price>
           <Label>24h</Label>
           {cryptoChange > 0 ? <ArrowUp /> : <ArrowDown />}
           <ChangeValue up={cryptoChange > 0}>
@@ -60,11 +54,11 @@ const DisplayCard = ({
       </CardHeader>
       <Detail>
         <Label>24h volume</Label>
-        <Amount>{numberFormat(cryptoVolume)} </Amount>
+        <Amount>{intlNumberFormat(cryptoVolume, currency)} </Amount>
       </Detail>
       <Detail>
         <Label>market cap</Label>
-        <Amount>{numberFormat(cryptoCap)} </Amount>
+        <Amount>{intlNumberFormat(cryptoCap, currency)} </Amount>
       </Detail>
     </Card>
   );

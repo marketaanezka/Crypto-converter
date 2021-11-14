@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react';
 import { CryptoDataObject } from '../../config/types';
 import { CryptoDataContext } from '../../config/CryptoDataProvider';
 import { fiatValues, cryptoValues, getSymbol } from '../../config/data';
-import { ConverterWrapper, Equals } from './styled';
-import { formatAmount } from '../../config/helperFunctions';
+import { ConverterWrapper, ConvertSign } from './styled';
+import { formatForConversion } from '../../utils/format-number';
 import ConverterRow from '../ConverterRow';
 
 const Converter = (): JSX.Element => {
@@ -16,12 +16,12 @@ const Converter = (): JSX.Element => {
   const exchangeRates = context as CryptoDataObject;
 
   const handleFromInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(formatAmount(e.target.value));
+    setAmount(formatForConversion(e.target.value));
     setInversed(false);
   };
 
   const handleToInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(formatAmount(e.target.value));
+    setAmount(formatForConversion(e.target.value));
     setInversed(true);
   };
 
@@ -41,7 +41,7 @@ const Converter = (): JSX.Element => {
             }}
             currencyLabel={getSymbol(fromCrypto)}
           />
-          <Equals>=</Equals>
+          <ConvertSign>=</ConvertSign>
           <ConverterRow
             inputValue={
               inversed ? amount : amount * exchangeRates[fromCrypto][toFiat]

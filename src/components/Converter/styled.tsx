@@ -26,7 +26,7 @@ export const ConverterWrapper = styled.section`
   }
 `;
 
-export const Equals = styled.div`
+export const ConvertSign = styled.div`
   height: 32px;
   display: table-cell;
   line-height: 27px;

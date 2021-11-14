@@ -23,12 +23,6 @@ export const fiatValues = [
   { name: 'Yen', code: 'jpy' },
 ];
 
-const cryptoNames = cryptoValues.map((item) => item.name);
-const fiatCodes = fiatValues.map((item) => item.code);
-
-export const cryptoQuery = cryptoNames.join();
-export const fiatQuery = fiatCodes.join();
-
 const cryptoSymbols: { [key: string]: string } = {
   bitcoin: 'BTC',
   cardano: 'ADA',
@@ -46,3 +40,9 @@ export const getSymbol = (cryptoName: string): string => {
   const formatCrypto = cryptoName.replace('-', '');
   return cryptoSymbols[formatCrypto];
 };
+
+const cryptoNames = cryptoValues.map((item) => item.name);
+export const cryptoQuery = cryptoNames.join();
+
+const fiatCodes = fiatValues.map((item) => item.code);
+export const fiatQuery = fiatCodes.join();

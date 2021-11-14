@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { device } from '../../common/device';
 import { centerBlock } from '../../common/theme';
+// import { TextField, Select, SelectChangeEvent, MenuItem } from '@mui/material';
 
 export const RowWrapper = styled.div`
   ${centerBlock}
@@ -13,14 +14,6 @@ export const RowWrapper = styled.div`
 
   @media ${device.md} {
     width: 80%;
-
-    .css-11saer6-MuiFormControl-root-MuiTextField-root {
-      width: 50%;
-    }
-
-    .css-tvtc6y-MuiInputBase-root-MuiOutlinedInput-root {
-      width: 50%;
-    }
   }
 `;
 
