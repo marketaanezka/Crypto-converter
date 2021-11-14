@@ -43,7 +43,7 @@ export const Price = styled.h3`
 export const CardHeaderBottom = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   margin-bottom: 5px;
 `;
 
@@ -89,12 +89,12 @@ export const Detail = styled.div`
 
 export const Label = styled.p`
   color: ${defaultTheme.color.darkGray};
-  font-size: ${defaultTheme.fontSize.standard};
+  font-size: ${defaultTheme.fontSize.small};
   margin-right: 0.5rem;
   text-transform: capitalize;
 `;
 
 export const Amount = styled.p`
   color: ${defaultTheme.color.black};
-  font-size: ${defaultTheme.fontSize.medium};
+  font-size: ${defaultTheme.fontSize.standard};
 `;
