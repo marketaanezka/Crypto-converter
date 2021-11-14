@@ -53,7 +53,7 @@ const ConverterRow = ({
               value={option.code}
               sx={{ display: 'flex', alignItems: 'center' }}
             >
-              <Icon code={option.code} />
+              <Icon code={option.code} size={20} />
               <SelectOptionName>{option.name}</SelectOptionName>
             </MenuItem>
           );

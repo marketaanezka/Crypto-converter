@@ -29,6 +29,8 @@ export const defaultTheme: DefaultTheme = {
     gray: '#b8bdc4',
     lightBlue: '#f0f5fa',
     lightBg: '#f0f5fa',
+    red: '#eb4c9b',
+    green: '#1ab586',
   },
   fontSize: {
     xs: '0.75rem', //.12

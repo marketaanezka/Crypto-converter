@@ -36,10 +36,10 @@ const DisplayCard = ({
   currency,
 }: Props): JSX.Element => {
   return (
-    <Card key={cryptoName}>
+    <Card>
       <CardHeader>
         <CardHeaderLeft>
-          <Icon code={cryptoName} />
+          <Icon code={cryptoName} size={25} />
           <CryptoSymbol>{getSymbol(cryptoName)}</CryptoSymbol>
           <CryptoName>{cryptoName}</CryptoName>
         </CardHeaderLeft>
@@ -48,7 +48,7 @@ const DisplayCard = ({
           <Label>24h</Label>
           {cryptoChange > 0 ? <ArrowUp /> : <ArrowDown />}
           <ChangeValue up={cryptoChange > 0}>
-            {formatNumber(cryptoChange)}%
+            {formatNumber(Math.abs(cryptoChange))}%
           </ChangeValue>
         </CardHeaderRight>
       </CardHeader>

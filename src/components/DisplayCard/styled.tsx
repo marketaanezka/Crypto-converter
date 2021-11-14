@@ -60,22 +60,24 @@ export const ArrowUp = styled.div`
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
 
-  border-bottom: 9px solid green;
+  border-bottom: 9px solid ${defaultTheme.color.green};
   margin-right: 0.25rem;
 `;
+
 export const ArrowDown = styled.div`
   width: 0;
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
 
-  border-top: 9px solid #f00;
+  border-top: 9px solid ${defaultTheme.color.red};
 
   margin-right: 0.25rem;
 `;
 
 export const ChangeValue = styled.span<Props>`
-  color: ${(props) => (props.up ? 'green' : 'red')};
+  color: ${(props) =>
+    props.up ? defaultTheme.color.green : defaultTheme.color.red};
 `;
 export const Detail = styled.div`
   margin-bottom: ${defaultTheme.margin.small};

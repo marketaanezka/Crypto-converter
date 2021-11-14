@@ -44,14 +44,15 @@ const icons: SVGlist = {
 
 type Props = {
   code: string;
+  size: number;
 };
 
-const Icon = ({ code }: Props): JSX.Element => {
+const Icon = ({ code, size }: Props): JSX.Element => {
   const stringCode = code.replaceAll('-', '');
   const Svg = icons[stringCode];
   return (
     <IconWrapper>
-      <Svg width={20} height={20} />
+      <Svg width={size} height={size} />
     </IconWrapper>
   );
 };

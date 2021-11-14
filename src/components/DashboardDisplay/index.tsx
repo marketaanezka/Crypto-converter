@@ -8,7 +8,7 @@ const DashboardDisplay = (cryptoData: CryptoDataObject): JSX.Element => {
     cryptoData
   ) as FormattedCryptoObject[];
   // now static need to be a select
-  const currency = 'usd';
+  const currency = 'czk';
 
   return (
     <>
