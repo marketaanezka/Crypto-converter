@@ -3,16 +3,17 @@ import {
   Label,
   Card,
   CardHeader,
-  CardHeaderLeft,
   CryptoSymbol,
   CryptoName,
-  CardHeaderRight,
   Price,
   ArrowUp,
   ArrowDown,
   ChangeValue,
   Detail,
   Amount,
+  CardHeaderTop,
+  CardHeaderBottom,
+  CryptoTitle,
 } from './styled';
 import Icon from '../Icon';
 import { getSymbol } from '../../config/data';
@@ -38,19 +39,21 @@ const DisplayCard = ({
   return (
     <Card>
       <CardHeader>
-        <CardHeaderLeft>
-          <Icon code={cryptoName} size={25} />
-          <CryptoSymbol>{getSymbol(cryptoName)}</CryptoSymbol>
-          <CryptoName>{cryptoName}</CryptoName>
-        </CardHeaderLeft>
-        <CardHeaderRight>
+        <CardHeaderTop>
+          <CryptoTitle>
+            <Icon code={cryptoName} size={25} />
+            <CryptoSymbol>{getSymbol(cryptoName)}</CryptoSymbol>
+          </CryptoTitle>
           <Price>{intlNumberFormat(cryptoPrice, currency)} </Price>
+        </CardHeaderTop>
+        <CardHeaderBottom>
+          <CryptoName>{cryptoName}</CryptoName>
           <Label>24h</Label>
           {cryptoChange > 0 ? <ArrowUp /> : <ArrowDown />}
           <ChangeValue up={cryptoChange > 0}>
             {formatNumber(Math.abs(cryptoChange))}%
           </ChangeValue>
-        </CardHeaderRight>
+        </CardHeaderBottom>
       </CardHeader>
       <Detail>
         <Label>24h volume</Label>

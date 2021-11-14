@@ -17,17 +17,18 @@ export const Card = styled.article`
 `;
 
 export const CardHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: ${defaultTheme.margin.medium}; ;
+  margin-bottom: ${defaultTheme.margin.medium};
 `;
 
-export const CardHeaderLeft = styled.div`
-  width: 40%;
+export const CardHeaderTop = styled.div`
   display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+`;
+
+export const CryptoTitle = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export const CryptoSymbol = styled.h3`
@@ -35,23 +36,22 @@ export const CryptoSymbol = styled.h3`
   font-size: ${defaultTheme.fontSize.title};
 `;
 
+export const Price = styled.h3`
+  overflow: hidden;
+`;
+
+export const CardHeaderBottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+`;
+
 export const CryptoName = styled.p`
-  width: 100%;
+  flex-grow: 2;
   text-align: start;
   font-size: ${defaultTheme.fontSize.medium};
   text-transform: capitalize;
-`;
-
-export const CardHeaderRight = styled.div`
-  width: 60%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: baseline;
-  flex-wrap: wrap;
-`;
-export const Price = styled.h3`
-  width: 100%;
-  text-align: end;
 `;
 
 export const ArrowUp = styled.div`
