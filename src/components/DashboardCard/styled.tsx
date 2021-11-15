@@ -25,7 +25,7 @@ export const CardHeader = styled.header`
 export const CardHeaderTop = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 `;
 
 export const CryptoTitle = styled.div`

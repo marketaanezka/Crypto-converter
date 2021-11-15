@@ -17,6 +17,8 @@ interface Props {
   currencyLabel: string;
 }
 
+const customInput = () => <TextField inputProps={{ inputMode: 'numeric' }} />;
+
 const ConverterRow = ({
   inputValue,
   handleAmountChange,
@@ -33,8 +35,7 @@ const ConverterRow = ({
         allowNegative={false}
         allowLeadingZeros={false}
         onChange={handleAmountChange}
-        customInput={TextField}
-        inputMode="numeric"
+        customInput={customInput}
         label={currencyLabel}
         sx={{ width: ['60%', '60%', '50%'] }}
       />
