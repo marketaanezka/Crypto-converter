@@ -10,7 +10,9 @@ export const Card = styled.article`
   background-color: inherit;
   border-bottom: 1px solid ${defaultTheme.color.gray};
   width: 100%;
-
+  background-color: ${defaultTheme.color.white};
+  box-shadow: ${defaultTheme.cardShadow};
+  border-radius: ${defaultTheme.borderRadius};
   @media ${device.sm} {
     padding: ${defaultTheme.padding.large};
   }

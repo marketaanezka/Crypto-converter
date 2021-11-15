@@ -52,7 +52,7 @@ export const defaultTheme: DefaultTheme = {
     large: '1.5rem',
   },
   borderRadius: '8px',
-  cardShadow: 'rgba(35, 55, 80, 0.3) 0px 6px 12px',
+  cardShadow: 'rgba(136, 159, 184, 0.145) 0px 6px 12px',
 };
 
 export const centerBlock = `

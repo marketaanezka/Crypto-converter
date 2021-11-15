@@ -21,8 +21,8 @@ export const ConverterWrapper = styled.section`
   @media ${device.md} {
     flex-direction: row;
     height: 170px;
-    width: 800px;
-    max-width: 800px;
+    min-width: 800px;
+    width: 1000px;
   }
 `;
 

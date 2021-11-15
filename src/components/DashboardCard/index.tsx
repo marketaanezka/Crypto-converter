@@ -28,7 +28,7 @@ interface Props {
   currency: string;
 }
 
-const DisplayCard = ({
+const DashboardCard = ({
   cryptoName,
   cryptoPrice,
   cryptoChange,
@@ -67,4 +67,4 @@ const DisplayCard = ({
   );
 };
 
-export default DisplayCard;
+export default DashboardCard;

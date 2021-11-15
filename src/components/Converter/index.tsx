@@ -5,6 +5,7 @@ import { fiatValues, cryptoValues, getSymbol } from '../../config/data';
 import { ConverterWrapper, ConvertSign } from './styled';
 import { formatForConversion } from '../../utils/format-number';
 import ConverterRow from '../ConverterRow';
+import { Typography } from '@mui/material';
 
 const Converter = (): JSX.Element => {
   const [fromCrypto, setFromCrypto] = useState('bitcoin');
@@ -26,37 +27,42 @@ const Converter = (): JSX.Element => {
   };
 
   return (
-    <ConverterWrapper>
-      {exchangeRates !== null ? (
-        <>
-          <ConverterRow
-            inputValue={
-              inversed ? amount / exchangeRates[fromCrypto][toFiat] : amount
-            }
-            handleAmountChange={handleFromInputChange}
-            selectValue={fromCrypto}
-            selectOptions={cryptoValues}
-            handleCurrencyChange={(e) => {
-              setFromCrypto(e.target.value);
-            }}
-            currencyLabel={getSymbol(fromCrypto)}
-          />
-          <ConvertSign>=</ConvertSign>
-          <ConverterRow
-            inputValue={
-              inversed ? amount : amount * exchangeRates[fromCrypto][toFiat]
-            }
-            handleAmountChange={handleToInputChange}
-            selectValue={toFiat}
-            selectOptions={fiatValues}
-            handleCurrencyChange={(e) => setToFiat(e.target.value)}
-            currencyLabel={toFiat.toUpperCase()}
-          />
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </ConverterWrapper>
+    <>
+      <Typography variant="h4" align="center" gutterBottom>
+        Converter
+      </Typography>
+      <ConverterWrapper>
+        {exchangeRates !== null ? (
+          <>
+            <ConverterRow
+              inputValue={
+                inversed ? amount / exchangeRates[fromCrypto][toFiat] : amount
+              }
+              handleAmountChange={handleFromInputChange}
+              selectValue={fromCrypto}
+              selectOptions={cryptoValues}
+              handleCurrencyChange={(e) => {
+                setFromCrypto(e.target.value);
+              }}
+              currencyLabel={getSymbol(fromCrypto)}
+            />
+            <ConvertSign>=</ConvertSign>
+            <ConverterRow
+              inputValue={
+                inversed ? amount : amount * exchangeRates[fromCrypto][toFiat]
+              }
+              handleAmountChange={handleToInputChange}
+              selectValue={toFiat}
+              selectOptions={fiatValues}
+              handleCurrencyChange={(e) => setToFiat(e.target.value)}
+              currencyLabel={toFiat.toUpperCase()}
+            />
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </ConverterWrapper>
+    </>
   );
 };
 

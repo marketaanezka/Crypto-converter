@@ -1,7 +1,8 @@
 import React from 'react';
 import { CryptoDataObject, FormattedCryptoObject } from '../../config/types';
 import { formatAPIdata } from '../../utils/format-data';
-import DisplayCard from '../DisplayCard';
+import DashboardCard from '../DashboardCard';
+import { DisplayGrid } from './styled';
 
 const DashboardDisplay = (cryptoData: CryptoDataObject): JSX.Element => {
   const formattedCryptoData = formatAPIdata(
@@ -11,9 +12,9 @@ const DashboardDisplay = (cryptoData: CryptoDataObject): JSX.Element => {
   const currency = 'czk';
 
   return (
-    <>
+    <DisplayGrid>
       {formattedCryptoData.map((cryptoItem) => (
-        <DisplayCard
+        <DashboardCard
           key={cryptoItem.crypto}
           cryptoName={cryptoItem.crypto}
           cryptoPrice={cryptoItem[currency]}
@@ -23,7 +24,7 @@ const DashboardDisplay = (cryptoData: CryptoDataObject): JSX.Element => {
           currency={currency}
         />
       ))}
-    </>
+    </DisplayGrid>
   );
 };
 
