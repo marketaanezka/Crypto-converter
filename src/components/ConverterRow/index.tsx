@@ -34,6 +34,7 @@ const ConverterRow = ({
         allowLeadingZeros={false}
         onChange={handleAmountChange}
         customInput={TextField}
+        inputMode="numeric"
         label={currencyLabel}
         sx={{ width: ['60%', '60%', '50%'] }}
       />

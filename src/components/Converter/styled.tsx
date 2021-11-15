@@ -22,7 +22,7 @@ export const ConverterWrapper = styled.section`
     flex-direction: row;
     height: 170px;
     min-width: 800px;
-    width: 1000px;
+    width: 1200px;
   }
 `;
 

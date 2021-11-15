@@ -7,6 +7,6 @@ export const DashboardWrapper = styled.section`
   width: 500px;
   @media ${device.sm} {
     width: calc(100% - 60px);
-    max-width: 1000px;
+    max-width: 1200px;
   }
 `;
