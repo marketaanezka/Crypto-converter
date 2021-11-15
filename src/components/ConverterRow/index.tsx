@@ -32,6 +32,7 @@ const ConverterRow = ({
         thousandSeparator={true}
         allowNegative={false}
         allowLeadingZeros={false}
+        decimalScale={7}
         onChange={handleAmountChange}
         customInput={TextField}
         type="tel"

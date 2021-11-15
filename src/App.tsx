@@ -1,6 +1,6 @@
 import React from 'react';
 import Converter from './components/Converter';
-import { AppWrapper } from './components/AppWrapper/styled';
+import Layout from './components/Layout/';
 import Dashboard from './components/Dashboard';
 import Theme from './common/ThemeProvider';
 
@@ -8,10 +8,10 @@ const App = (): JSX.Element => {
   return (
     <Theme>
       <div className="App">
-        <AppWrapper>
+        <Layout>
           <Converter />
           <Dashboard />
-        </AppWrapper>
+        </Layout>
       </div>
     </Theme>
   );

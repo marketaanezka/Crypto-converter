@@ -25,6 +25,7 @@ export const defaultTheme: DefaultTheme = {
     white: '#FFFF',
     offWhite: '#F2F2F2',
     black: '#323C46',
+    headerGray: '#c6d2df',
     darkGray: '#a0a6af',
     gray: '#b8bdc4',
     lightBlue: '#f0f5fa',

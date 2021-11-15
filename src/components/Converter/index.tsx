@@ -28,7 +28,12 @@ const Converter = (): JSX.Element => {
 
   return (
     <>
-      <Typography variant="h4" align="center" gutterBottom>
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+        sx={{ marginTop: '1rem' }}
+      >
         Converter
       </Typography>
       <ConverterWrapper>
