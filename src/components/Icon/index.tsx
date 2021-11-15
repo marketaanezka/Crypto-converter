@@ -25,6 +25,7 @@ import { ReactComponent as ShibaInu } from '../../assets/crypto/shibainu.svg';
 import { ReactComponent as Litecoin } from '../../assets/crypto/litecoin.svg';
 import { ReactComponent as Sushi } from '../../assets/crypto/sushi.svg';
 import { ReactComponent as Vechain } from '../../assets/crypto/vechain.svg';
+import { ReactComponent as Terraluna } from '../../assets/crypto/terraluna.svg';
 
 import { IconWrapper } from './styled';
 
@@ -52,6 +53,7 @@ const icons: SVGlist = {
   ripple: Ripple,
   solana: Solana,
   tether: Tether,
+  terraluna: Terraluna,
   usdcoin: UsdCoin,
   vechain: Vechain,
   sushi: Sushi,

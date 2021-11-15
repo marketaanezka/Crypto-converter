@@ -13,6 +13,7 @@ export const cryptoValues = [
   { name: 'Solana', code: 'solana' },
   { name: 'Sushi', code: 'sushi' },
   { name: 'Tether', code: 'tether' },
+  { name: 'Terra-luna', code: 'terra-luna' },
   { name: 'Usd-coin', code: 'usd-coin' },
   { name: 'Vechain', code: 'vechain' },
 ];
@@ -40,6 +41,7 @@ const cryptoSymbols: { [key: string]: string } = {
   ripple: 'XRP',
   solana: 'SOL',
   tether: 'USDT',
+  terraluna: 'LUNA',
   usdcoin: 'USDC',
   vechain: 'VET',
   dogecoin: 'DOGE',
