@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import CryptoDataProvider from './config/CryptoDataProvider';
 
+console.log(
+  'This project is under construction now, checkout github repo https://github.com/marketaanezka/Crypto-converter'
+);
+
 ReactDOM.render(
   <React.StrictMode>
     <CryptoDataProvider>
