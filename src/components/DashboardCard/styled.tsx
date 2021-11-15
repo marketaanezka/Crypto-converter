@@ -19,7 +19,7 @@ export const Card = styled.article`
 `;
 
 export const CardHeader = styled.header`
-  margin-bottom: ${defaultTheme.margin.medium};
+  margin-bottom: ${defaultTheme.margin.large};
 `;
 
 export const CardHeaderTop = styled.div`
