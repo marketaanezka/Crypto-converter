@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { CryptoDataObject } from '../../config/types';
 import { CryptoDataContext } from '../../config/CryptoDataProvider';
 import DashboardDisplay from '../DashboardDisplay';
+import DashboardHeader from '../DashboardHeader';
 import { DashboardWrapper } from './styled';
 import { Typography } from '@mui/material';
 
@@ -14,6 +15,7 @@ const Dashboard = (): JSX.Element => {
       <Typography variant="h4" align="center" gutterBottom>
         Current crypto data
       </Typography>
+      <DashboardHeader />
       {cryptoInfo !== null ? <DashboardDisplay {...cryptoInfo} /> : null}
     </DashboardWrapper>
   );

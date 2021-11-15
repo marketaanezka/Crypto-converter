@@ -4,7 +4,6 @@ import { defaultTheme } from '../../common/theme';
 export const LayoutWrapper = styled.main`
   min-height: 100vh;
   background-color: ${defaultTheme.color.lightBg};
-  /* padding-top: 3rem; */
 `;
 
 export const HeaderBar = styled.header`

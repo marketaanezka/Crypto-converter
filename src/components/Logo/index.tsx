@@ -2,7 +2,7 @@ import React from 'react';
 import { ReactComponent as LogoSvg } from '../../assets/logo/mwlogo02.svg';
 import { LogoWrapper } from './styled';
 
-const Logo = () => {
+const Logo = (): JSX.Element => {
   return (
     <LogoWrapper darkMode={false}>
       <LogoSvg width={35} height={35} />
