@@ -1,30 +1,23 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Header } from './styled';
 import CurrencySelect from '../CurrencySelect';
 import { fiatValues } from '../../config/data';
 import { SelectChangeEvent } from '@mui/material';
-import { CryptoDataContextReducer } from '../../state/context';
+import { CryptoDataContextNew } from '../../state/context';
+import { DashboardCurrency } from '../../config/types';
+import { setDashboardCurrency } from '../../state/reducer';
 
-interface Props {
-  dashboardCurrency: string;
-  onChangeDashboardCurrency: (
-    event: SelectChangeEvent<string>,
-    child: ReactNode
-  ) => void;
-}
-
-const DashboardHeader = ({
-  dashboardCurrency,
-  onChangeDashboardCurrency,
-}: Props): JSX.Element => {
-  const { state } = useContext(CryptoDataContextReducer);
+const DashboardHeader = (): JSX.Element => {
+  const { state, dispatch } = useContext(CryptoDataContextNew);
+  const handleDashboardCurrencyChanged = (e: SelectChangeEvent<string>) => {
+    const newCurrency = e.target.value as DashboardCurrency;
+    dispatch(setDashboardCurrency(newCurrency));
+  };
   return (
     <Header>
-      testing header, select only static!
-      <h4>{state.dashboardCurrency}</h4>
       <CurrencySelect
-        selectValue={dashboardCurrency}
-        onCurrencyChange={onChangeDashboardCurrency}
+        selectValue={state.dashboardCurrency}
+        onCurrencyChange={handleDashboardCurrencyChanged}
         selectOptions={fiatValues}
       />
     </Header>

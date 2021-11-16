@@ -1,27 +1,21 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import Converter from './components/Converter';
 import Layout from './components/Layout/';
 import Dashboard from './components/Dashboard';
 import Theme from './common/ThemeProvider';
-import { initialCryptoDataState } from './state/state';
-import { cryptoDataReducer } from './state/reducer';
-import { CryptoDataContextReducer } from './state/context';
+import CryptoDataProviderNew from './state/provider';
 
 const App = (): JSX.Element => {
-  const [state, dispatch] = useReducer(
-    cryptoDataReducer,
-    initialCryptoDataState
-  );
   return (
     <Theme>
-      <CryptoDataContextReducer.Provider value={{ state, dispatch }}>
+      <CryptoDataProviderNew>
         <div className="App">
           <Layout>
             <Converter />
             <Dashboard />
           </Layout>
         </div>
-      </CryptoDataContextReducer.Provider>
+      </CryptoDataProviderNew>
     </Theme>
   );
 };

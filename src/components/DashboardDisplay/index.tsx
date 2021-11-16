@@ -1,29 +1,18 @@
-import React from 'react';
-import {
-  CryptoDataObject,
-  // DashboardCurrency,
-  FormattedCryptoObject,
-} from '../../config/types';
-import { formatAPIdata } from '../../utils/format-data';
+import React, { useContext } from 'react';
+import { FormattedCryptoObject } from '../../config/types';
+import { CryptoDataContextNew } from '../../state/context';
 import DashboardCard from '../DashboardCard';
 import { DisplayGrid } from './styled';
 
-const DashboardDisplay = (
-  cryptoData: CryptoDataObject
-  // dashboardCurrency: DashboardCurrency
-): JSX.Element => {
-  const formattedCryptoData = formatAPIdata(
-    cryptoData
-  ) as FormattedCryptoObject[];
-  console.log(formattedCryptoData);
-  // const currency = dashboardCurrency as DashboardCurrency;
-
+const DashboardDisplay = (): JSX.Element => {
+  const { state } = useContext(CryptoDataContextNew);
+  const newData = state.cryptoDetails as FormattedCryptoObject[];
   // now static need to be a select
-  const currency = 'chf';
+  const currency = state.dashboardCurrency;
 
   return (
     <DisplayGrid>
-      {formattedCryptoData.map((cryptoItem) => (
+      {newData.map((cryptoItem) => (
         <DashboardCard
           key={cryptoItem.crypto}
           cryptoName={cryptoItem.crypto}

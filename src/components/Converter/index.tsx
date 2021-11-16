@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { CryptoDataObject } from '../../config/types';
-import { CryptoDataContext } from '../../state/CryptoDataProvider';
-import { fiatValues, cryptoValues, getSymbol } from '../../config/data';
-import { ConverterWrapper, ConvertSign } from './styled';
 import { formatForConversion } from '../../utils/format-number';
 import ConverterRow from '../ConverterRow';
 import { Typography } from '@mui/material';
+import { CryptoDataContextNew } from '../../state/context';
+import { ConverterWrapper, ConvertSign } from './styled';
+import { cryptoValues, fiatValues, getSymbol } from '../../config/data';
 
 const Converter = (): JSX.Element => {
   const [fromCrypto, setFromCrypto] = useState('bitcoin');
@@ -13,8 +12,8 @@ const Converter = (): JSX.Element => {
   const [inversed, setInversed] = useState(false);
   const [amount, setAmount] = useState(1);
 
-  const context = useContext(CryptoDataContext);
-  const exchangeRates = context as CryptoDataObject;
+  const { state } = useContext(CryptoDataContextNew);
+  const exchangeRates = state.exchangeRate;
 
   const handleFromInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(formatForConversion(e.target.value));
