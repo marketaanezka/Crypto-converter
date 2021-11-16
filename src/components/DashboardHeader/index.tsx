@@ -1,8 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useContext } from 'react';
 import { Header } from './styled';
 import CurrencySelect from '../CurrencySelect';
 import { fiatValues } from '../../config/data';
 import { SelectChangeEvent } from '@mui/material';
+import { CryptoDataContextReducer } from '../../state/context';
 
 interface Props {
   dashboardCurrency: string;
@@ -16,9 +17,11 @@ const DashboardHeader = ({
   dashboardCurrency,
   onChangeDashboardCurrency,
 }: Props): JSX.Element => {
+  const { state } = useContext(CryptoDataContextReducer);
   return (
     <Header>
       testing header, select only static!
+      <h4>{state.dashboardCurrency}</h4>
       <CurrencySelect
         selectValue={dashboardCurrency}
         onCurrencyChange={onChangeDashboardCurrency}
