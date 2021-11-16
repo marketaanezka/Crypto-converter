@@ -1,6 +1,6 @@
 import React, { createContext, useState, FC, useEffect } from 'react';
-import { CryptoDataObject } from './types';
-import { URL_BASE, fiatQuery, cryptoQuery } from './data';
+import { CryptoDataObject } from '../config/types';
+import { URL_BASE, fiatQuery, cryptoQuery } from '../config/data';
 
 export const CryptoDataContext = createContext<CryptoDataObject | null>(null);
 

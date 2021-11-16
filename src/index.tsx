@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import CryptoDataProvider from './config/CryptoDataProvider';
+import CryptoDataProvider from './state/CryptoDataProvider';
 
 console.log(
   'This project is under construction now, checkout github repo https://github.com/marketaanezka/Crypto-converter'

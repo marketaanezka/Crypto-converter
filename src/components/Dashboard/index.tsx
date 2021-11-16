@@ -1,6 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { CryptoDataObject } from '../../config/types';
-import { CryptoDataContext } from '../../config/CryptoDataProvider';
+import {
+  CryptoDataObject,
+  // DashboardCurrency
+} from '../../config/types';
+import { CryptoDataContext } from '../../state/CryptoDataProvider';
 import DashboardDisplay from '../DashboardDisplay';
 import DashboardHeader from '../DashboardHeader';
 import { DashboardWrapper } from './styled';
@@ -24,7 +27,12 @@ const Dashboard = (): JSX.Element => {
         dashboardCurrency={dashboardCurrency}
         onChangeDashboardCurrency={handleChangeDashboardCurrency}
       />
-      {cryptoInfo !== null ? <DashboardDisplay {...cryptoInfo} /> : null}
+      {cryptoInfo !== null ? (
+        <DashboardDisplay
+          {...cryptoInfo}
+          // dashboardCurrency={dashboardCurrency as DashboardCurrency}
+        />
+      ) : null}
     </DashboardWrapper>
   );
 };

@@ -9,16 +9,37 @@ export interface CryptoDataObject {
   [key: string]: Rate;
 }
 
+export type DashboardCurrency =
+  | 'aud'
+  | 'cad'
+  | 'czk'
+  | 'eur'
+  | 'krw'
+  | 'gbp'
+  | 'rub'
+  | 'chf'
+  | 'usd'
+  | 'cny'
+  | 'jpy';
+
 export type FormattedCryptoObject = {
-  crypto: string;
+  aud: number;
+  aud_24h_change: number;
+  aud_24h_vol: number;
+  aud_market_cap: number;
   cad: number;
   cad_24h_change: number;
   cad_24h_vol: number;
   cad_market_cap: number;
+  chf: number;
+  chf_24h_change: number;
+  chf_24h_vol: number;
+  chf_market_cap: number;
   cny: number;
   cny_24h_change: number;
   cny_24h_vol: number;
   cny_market_cap: number;
+  crypto: string;
   czk: number;
   czk_24h_change: number;
   czk_24h_vol: number;
@@ -35,6 +56,14 @@ export type FormattedCryptoObject = {
   jpy_24h_change: number;
   jpy_24h_vol: number;
   jpy_market_cap: number;
+  krw: number;
+  krw_24h_change: number;
+  krw_24h_vol: number;
+  krw_market_cap: number;
+  rub: number;
+  rub_24h_change: number;
+  rub_24h_vol: number;
+  rub_market_cap: number;
   usd: number;
   usd_24h_change: number;
   usd_24h_vol: number;

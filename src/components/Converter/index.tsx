@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { CryptoDataObject } from '../../config/types';
-import { CryptoDataContext } from '../../config/CryptoDataProvider';
+import { CryptoDataContext } from '../../state/CryptoDataProvider';
 import { fiatValues, cryptoValues, getSymbol } from '../../config/data';
 import { ConverterWrapper, ConvertSign } from './styled';
 import { formatForConversion } from '../../utils/format-number';
