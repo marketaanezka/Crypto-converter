@@ -7,7 +7,6 @@ import { DisplayGrid } from './styled';
 const DashboardDisplay = (): JSX.Element => {
   const { state } = useContext(CryptoDataContext);
   const newData = state.cryptoDetails as FormattedCryptoObject[];
-  // now static need to be a select
   const currency = state.dashboardCurrency;
 
   return (
@@ -21,6 +20,7 @@ const DashboardDisplay = (): JSX.Element => {
           cryptoVolume={cryptoItem[`${currency}_24h_vol`]}
           cryptoCap={cryptoItem[`${currency}_market_cap`]}
           currency={currency}
+          lastUpdated={cryptoItem['last_updated_at']}
         />
       ))}
     </DisplayGrid>

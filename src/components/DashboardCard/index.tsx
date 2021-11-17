@@ -18,6 +18,7 @@ import {
 import Icon from '../Icon';
 import { getSymbol } from '../../config/data';
 import { formatNumber, intlNumberFormat } from '../../utils/format-number';
+import { timeFromUnix } from '../../utils/time';
 
 interface Props {
   cryptoName: string;
@@ -26,6 +27,7 @@ interface Props {
   cryptoVolume: number;
   cryptoCap: number;
   currency: string;
+  lastUpdated: number;
 }
 
 const DashboardCard = ({
@@ -35,6 +37,7 @@ const DashboardCard = ({
   cryptoVolume,
   cryptoCap,
   currency,
+  lastUpdated,
 }: Props): JSX.Element => {
   return (
     <Card>
@@ -62,6 +65,10 @@ const DashboardCard = ({
       <Detail>
         <Label>market cap</Label>
         <Amount>{intlNumberFormat(cryptoCap, currency)} </Amount>
+      </Detail>
+      <Detail>
+        <Label>last updated</Label>
+        <Amount>{timeFromUnix(lastUpdated)} </Amount>
       </Detail>
     </Card>
   );

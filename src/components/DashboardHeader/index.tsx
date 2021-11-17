@@ -13,6 +13,7 @@ const DashboardHeader = (): JSX.Element => {
     const newCurrency = e.target.value as DashboardCurrency;
     dispatch(setDashboardCurrency(newCurrency));
   };
+
   return (
     <Header>
       <CurrencySelect
