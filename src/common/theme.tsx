@@ -38,7 +38,7 @@ export const defaultTheme: DefaultTheme = {
     small: '0.875rem', // 14
     standard: '1rem', // 16
     medium: '1.125rem', // 18
-    title: '1.375rem', // 22
+    title: '1.313rem', // 21
     large: '1.5rem', // 24
     quote: '2rem', // 32
   },

@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { FormattedCryptoObject } from '../../config/types';
-import { CryptoDataContextNew } from '../../state/context';
+import { CryptoDataContext } from '../../state/context';
 import DashboardCard from '../DashboardCard';
 import { DisplayGrid } from './styled';
 
 const DashboardDisplay = (): JSX.Element => {
-  const { state } = useContext(CryptoDataContextNew);
+  const { state } = useContext(CryptoDataContext);
   const newData = state.cryptoDetails as FormattedCryptoObject[];
   // now static need to be a select
   const currency = state.dashboardCurrency;

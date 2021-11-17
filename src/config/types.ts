@@ -68,6 +68,7 @@ export type FormattedCryptoObject = {
   usd_24h_change: number;
   usd_24h_vol: number;
   usd_market_cap: number;
+  last_updated_at: number;
 };
 
 export type CryptoDataArray = { [key: string]: string | number }[];

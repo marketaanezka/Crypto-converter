@@ -2,7 +2,7 @@ import React, { createContext } from 'react';
 import { Actions } from './actions';
 import { CryptoDataState, initialCryptoDataState } from './state';
 
-export const CryptoDataContextNew = createContext<{
+export const CryptoDataContext = createContext<{
   state: CryptoDataState;
   dispatch: React.Dispatch<Actions>;
 }>({

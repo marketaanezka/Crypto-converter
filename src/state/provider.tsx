@@ -1,7 +1,7 @@
 import React, { useReducer, useEffect } from 'react';
 import { cryptoQuery, fiatQuery, URL_BASE } from '../config/data';
 import { formatAPIdata } from '../utils/format-data';
-import { CryptoDataContextNew } from './context';
+import { CryptoDataContext } from './context';
 import {
   cryptoDataReducer,
   setCryptoDataObject,
@@ -13,17 +13,17 @@ type Props = {
   children: React.ReactChild | React.ReactChild[];
 };
 
-const CryptoDataProviderNew = ({ children }: Props) => {
+const CryptoDataProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(
     cryptoDataReducer,
     initialCryptoDataState
   );
 
   useEffect(() => {
-    console.log('useeffect in provider run');
     getExchangeRate(URL_BASE, cryptoQuery, fiatQuery);
   }, []);
 
+  // https://stackoverflow.com/questions/53146795/react-usereducer-async-data-fetch
   const getExchangeRate = async (
     url: string,
     crypto: string,
@@ -31,7 +31,7 @@ const CryptoDataProviderNew = ({ children }: Props) => {
   ): Promise<void> => {
     try {
       const response = await fetch(
-        `${url}/price?ids=${crypto}&vs_currencies=${currency}&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true`
+        `${url}/price?ids=${crypto}&vs_currencies=${currency}&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true`
       );
       const data = await response.json();
       dispatch(setCryptoDataObject(data));
@@ -42,10 +42,10 @@ const CryptoDataProviderNew = ({ children }: Props) => {
   };
 
   return (
-    <CryptoDataContextNew.Provider value={{ state, dispatch }}>
+    <CryptoDataContext.Provider value={{ state, dispatch }}>
       {children}
-    </CryptoDataContextNew.Provider>
+    </CryptoDataContext.Provider>
   );
 };
 
-export default CryptoDataProviderNew;
+export default CryptoDataProvider;

@@ -5,6 +5,8 @@ import { defaultTheme } from '../../common/theme';
 export const LayoutWrapper = styled.main`
   min-height: 100vh;
   background-color: ${defaultTheme.color.lightBg};
+  padding-bottom: ${defaultTheme.padding.large};
+  position: relative;
 `;
 
 export const HeaderBar = styled.header`
@@ -12,8 +14,9 @@ export const HeaderBar = styled.header`
   display: flex;
   justify-content: space-between;
   background: ${defaultTheme.color.headerBg};
-
-  /* @media ${device.sm} {
-    padding: 0.3rem 1rem;
-  } */
 `;
+
+export const IconStyle = {
+  fontSize: 45,
+  color: defaultTheme.color.headerBg,
+};

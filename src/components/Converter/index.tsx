@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { formatForConversion } from '../../utils/format-number';
 import ConverterRow from '../ConverterRow';
 import { Typography } from '@mui/material';
-import { CryptoDataContextNew } from '../../state/context';
+import { CryptoDataContext } from '../../state/context';
 import { ConverterWrapper, ConvertSign } from './styled';
 import { cryptoValues, fiatValues, getSymbol } from '../../config/data';
 
@@ -12,7 +12,7 @@ const Converter = (): JSX.Element => {
   const [inversed, setInversed] = useState(false);
   const [amount, setAmount] = useState(1);
 
-  const { state } = useContext(CryptoDataContextNew);
+  const { state } = useContext(CryptoDataContext);
   const exchangeRates = state.exchangeRate;
 
   const handleFromInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
