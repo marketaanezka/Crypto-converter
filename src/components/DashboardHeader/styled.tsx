@@ -12,3 +12,5 @@ export const Header = styled.section`
     align-items: center;
   }
 `;
+
+export const DashboardSelectWidth = ['40%', '30%', '20%'];

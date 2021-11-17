@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { CurrencyObject } from '../../config/types';
 import { TextField, SelectChangeEvent } from '@mui/material';
-import { RowWrapper } from './styled';
+import { RowWrapper, CurrencySelectWidth } from './styled';
 import NumberFormat from 'react-number-format';
 import CurrencySelect from '../CurrencySelect';
 
@@ -43,6 +43,7 @@ const ConverterRow = ({
         selectValue={selectValue}
         selectOptions={selectOptions}
         onCurrencyChange={handleCurrencyChange}
+        width={CurrencySelectWidth}
       />
     </RowWrapper>
   );

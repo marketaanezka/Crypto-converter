@@ -11,17 +11,19 @@ interface Props {
     event: SelectChangeEvent<string>,
     child: ReactNode
   ) => void;
+  width: string[];
 }
 
 const CurrencySelect = ({
   selectValue,
   onCurrencyChange,
   selectOptions,
+  width,
 }: Props): JSX.Element => {
   return (
     <Select
       sx={{
-        width: ['40%', '40%', '50%'],
+        width: width,
       }}
       name="currencyselect"
       id="currencyselect"

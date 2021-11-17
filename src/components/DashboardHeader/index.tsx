@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Header } from './styled';
+import { DashboardSelectWidth, Header } from './styled';
 import CurrencySelect from '../CurrencySelect';
 import { fiatValues } from '../../config/data';
 import { SelectChangeEvent } from '@mui/material';
@@ -19,6 +19,7 @@ const DashboardHeader = (): JSX.Element => {
         selectValue={state.dashboardCurrency}
         onCurrencyChange={handleDashboardCurrencyChanged}
         selectOptions={fiatValues}
+        width={DashboardSelectWidth}
       />
     </Header>
   );
