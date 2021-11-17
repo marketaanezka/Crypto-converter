@@ -1,8 +1,8 @@
-import { IconButton, Switch } from '@mui/material';
+import { Switch } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { LayoutWrapper, HeaderBar, IconStyle } from './styled';
+import { LayoutWrapper, HeaderBar } from './styled';
 import Logo from '../Logo';
-import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
+import ScrollToTopButton from '../ScrollToTopButton';
 
 type Props = {
   children?: React.ReactChild | React.ReactChild[];
@@ -21,32 +21,13 @@ const Layout = ({ children }: Props): JSX.Element => {
     });
   }, []);
 
-  // This function will scroll the window to the top
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth', // for smoothly scrolling
-    });
-  };
-
   return (
     <LayoutWrapper>
       <HeaderBar>
         <Logo />
         {/* switch only static will control dark mode */}
         <Switch color="default" />
-        {showButton && (
-          // <div style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
-          <IconButton
-            aria-label="scroll to top"
-            size="large"
-            onClick={scrollToTop}
-            sx={{ position: 'fixed', bottom: '2rem', right: '20rem' }}
-          >
-            <ArrowCircleUpIcon style={IconStyle} />
-          </IconButton>
-          // </div>
-        )}
+        {showButton && <ScrollToTopButton />}
       </HeaderBar>
       {children}
     </LayoutWrapper>

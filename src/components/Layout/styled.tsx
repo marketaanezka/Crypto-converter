@@ -15,8 +15,3 @@ export const HeaderBar = styled.header`
   justify-content: space-between;
   background: ${defaultTheme.color.headerBg};
 `;
-
-export const IconStyle = {
-  fontSize: 45,
-  color: defaultTheme.color.headerBg,
-};
