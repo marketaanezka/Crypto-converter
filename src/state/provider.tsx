@@ -13,7 +13,7 @@ type Props = {
   children: React.ReactChild | React.ReactChild[];
 };
 
-const CryptoDataProvider = ({ children }: Props) => {
+const CryptoDataProvider = ({ children }: Props): JSX.Element => {
   const [state, dispatch] = useReducer(
     cryptoDataReducer,
     initialCryptoDataState

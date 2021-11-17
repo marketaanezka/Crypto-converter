@@ -4,7 +4,7 @@ import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import { IconButton } from '@mui/material';
 import { scrollToTop } from '../../utils/scroll';
 
-const ScrollToTopButton = () => (
+const ScrollToTopButton = (): JSX.Element => (
   <IconButton
     aria-label="scroll to top"
     size="large"
