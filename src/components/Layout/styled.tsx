@@ -3,7 +3,7 @@ import { defaultTheme } from '../../common/theme';
 
 export const LayoutWrapper = styled.main`
   min-height: 100vh;
-  background-color: ${defaultTheme.color.lightBg};
+  background-color: ${defaultTheme.color.layoutBg};
   padding-bottom: ${defaultTheme.padding.large};
   position: relative;
 `;

@@ -8,9 +8,8 @@ interface Props {
 export const Card = styled.article`
   padding: ${defaultTheme.padding.medium};
   background-color: inherit;
-  border-bottom: 1px solid ${defaultTheme.color.gray};
   width: 100%;
-  background-color: ${defaultTheme.color.white};
+  background-color: ${defaultTheme.color.cardBg};
   box-shadow: ${defaultTheme.cardShadow};
   border-radius: ${defaultTheme.borderRadius};
   @media ${device.sm} {
@@ -34,11 +33,13 @@ export const CryptoTitle = styled.div`
 `;
 
 export const CryptoSymbol = styled.h3`
+  color: ${defaultTheme.color.text};
   width: 65%;
   font-size: ${defaultTheme.fontSize.title};
 `;
 
 export const Price = styled.h3`
+  color: ${defaultTheme.color.text};
   overflow: hidden;
 `;
 
@@ -50,6 +51,7 @@ export const CardHeaderBottom = styled.div`
 `;
 
 export const CryptoName = styled.p`
+  color: ${defaultTheme.color.text};
   flex-grow: 2;
   text-align: start;
   font-size: ${defaultTheme.fontSize.medium};
@@ -78,7 +80,7 @@ export const ArrowDown = styled.div`
 `;
 
 export const ChangeLabel = styled.p`
-  color: ${defaultTheme.color.darkGray};
+  color: ${defaultTheme.color.label};
   font-size: ${defaultTheme.fontSize.small};
   margin-right: 0.5rem;
 `;
@@ -96,7 +98,7 @@ export const Detail = styled.div`
 `;
 
 export const Label = styled.p`
-  color: ${defaultTheme.color.darkGray};
+  color: ${defaultTheme.color.label};
   font-size: ${defaultTheme.fontSize.small};
   margin-right: 0.5rem;
   text-transform: capitalize;
@@ -104,6 +106,6 @@ export const Label = styled.p`
 `;
 
 export const Amount = styled.p`
-  color: ${defaultTheme.color.black};
+  color: ${defaultTheme.color.text};
   font-size: ${defaultTheme.fontSize.standard};
 `;

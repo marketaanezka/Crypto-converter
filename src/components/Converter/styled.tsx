@@ -9,7 +9,7 @@ export const ConverterWrapper = styled.section`
   flex-direction: column;
   width: 500px;
   max-width: calc(100% - 60px);
-  background-color: ${defaultTheme.color.white};
+  background-color: ${defaultTheme.color.cardBg};
   box-shadow: ${defaultTheme.cardShadow};
   border-radius: ${defaultTheme.borderRadius};
   margin-bottom: ${defaultTheme.margin.medium};
@@ -32,4 +32,12 @@ export const ConvertSign = styled.div`
   line-height: 27px;
   font-size: 32px;
   margin: 0.5rem 1.5rem;
+`;
+
+export const Title = styled.h2`
+  margin: 2rem auto;
+  color: ${defaultTheme.color.text};
+  font-size: ${defaultTheme.fontSize.xl};
+  font-weight: 500;
+  text-align: center;
 `;

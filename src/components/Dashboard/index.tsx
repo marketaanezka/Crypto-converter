@@ -1,15 +1,12 @@
 import React from 'react';
 import DashboardDisplay from '../DashboardDisplay';
 import DashboardHeader from '../DashboardHeader';
-import { DashboardWrapper } from './styled';
-import { Typography } from '@mui/material';
+import { DashboardWrapper, Title } from './styled';
 
 const Dashboard = (): JSX.Element => {
   return (
     <DashboardWrapper>
-      <Typography variant="h4" align="center" gutterBottom>
-        Current crypto data
-      </Typography>
+      <Title>Current crypto data</Title>
       <DashboardHeader />
       <DashboardDisplay />
     </DashboardWrapper>

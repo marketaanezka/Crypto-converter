@@ -20,19 +20,7 @@ declare module 'styled-components' {
   }
 }
 
-export const defaultTheme: DefaultTheme = {
-  color: {
-    white: '#FFFF',
-    offWhite: '#F2F2F2',
-    black: '#323C46',
-    headerBg: '#436fe5',
-    darkGray: '#a0a6af',
-    gray: '#b8bdc4',
-    lightBlue: '#f0f5fa',
-    lightBg: '#f4f8fb',
-    red: '#eb4c9b',
-    green: '#1ab586',
-  },
+const commonThemeProperties = {
   fontSize: {
     xs: '0.75rem', //.12
     small: '0.875rem', // 14
@@ -40,7 +28,7 @@ export const defaultTheme: DefaultTheme = {
     medium: '1.125rem', // 18
     title: '1.313rem', // 21
     large: '1.5rem', // 24
-    quote: '2rem', // 32
+    xl: '2rem', // 32
   },
   padding: {
     small: '1rem',
@@ -54,6 +42,32 @@ export const defaultTheme: DefaultTheme = {
   },
   borderRadius: '8px',
   cardShadow: 'rgba(136, 159, 184, 0.145) 0px 6px 12px',
+};
+
+export const defaultTheme: DefaultTheme = {
+  color: {
+    cardBg: '#FFFF',
+    text: '#324637',
+    headerBg: '#436fe5',
+    label: '#a0a6af',
+    layoutBg: '#f4f8fb',
+    red: '#eb4c9b',
+    green: '#1ab586',
+  },
+  ...commonThemeProperties,
+};
+
+export const darkTheme: DefaultTheme = {
+  color: {
+    cardBg: '#FFFF',
+    text: '#323C46',
+    headerBg: '#436fe5',
+    label: '#a0a6af',
+    layoutBg: '#f4f8fb',
+    red: '#eb4c9b',
+    green: '#1ab586',
+  },
+  ...commonThemeProperties,
 };
 
 export const centerBlock = `

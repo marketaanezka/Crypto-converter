@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { formatForConversion } from '../../utils/format-number';
 import ConverterRow from '../ConverterRow';
-import { Typography } from '@mui/material';
 import { CryptoDataContext } from '../../state/context';
-import { ConverterWrapper, ConvertSign } from './styled';
+import { ConverterWrapper, ConvertSign, Title } from './styled';
 import { cryptoValues, fiatValues, getSymbol } from '../../config/data';
 
 const Converter = (): JSX.Element => {
@@ -27,14 +26,7 @@ const Converter = (): JSX.Element => {
 
   return (
     <>
-      <Typography
-        variant="h4"
-        align="center"
-        gutterBottom
-        sx={{ marginTop: '1rem' }}
-      >
-        Converter
-      </Typography>
+      <Title>Converter</Title>
       <ConverterWrapper>
         {exchangeRates !== null ? (
           <>

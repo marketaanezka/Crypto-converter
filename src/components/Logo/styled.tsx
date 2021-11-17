@@ -9,6 +9,8 @@ export const LogoWrapper = styled.div<Props>`
   ${centerBlock}
   svg path {
     fill: ${(props) =>
-      props.darkMode ? defaultTheme.color.lightBg : defaultTheme.color.lightBg};
+      props.darkMode
+        ? defaultTheme.color.layoutBg
+        : defaultTheme.color.layoutBg};
   }
 `;
