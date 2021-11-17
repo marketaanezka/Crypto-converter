@@ -77,6 +77,12 @@ export const ArrowDown = styled.div`
   margin-right: 0.25rem;
 `;
 
+export const ChangeLabel = styled.p`
+  color: ${defaultTheme.color.darkGray};
+  font-size: ${defaultTheme.fontSize.small};
+  margin-right: 0.5rem;
+`;
+
 export const ChangeValue = styled.span<Props>`
   color: ${(props) =>
     props.up ? defaultTheme.color.green : defaultTheme.color.red};
@@ -94,6 +100,7 @@ export const Label = styled.p`
   font-size: ${defaultTheme.fontSize.small};
   margin-right: 0.5rem;
   text-transform: capitalize;
+  width: 5.5rem;
 `;
 
 export const Amount = styled.p`

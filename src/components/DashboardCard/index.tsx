@@ -14,6 +14,7 @@ import {
   CardHeaderTop,
   CardHeaderBottom,
   CryptoTitle,
+  ChangeLabel,
 } from './styled';
 import Icon from '../Icon';
 import { getSymbol } from '../../config/data';
@@ -51,7 +52,7 @@ const DashboardCard = ({
         </CardHeaderTop>
         <CardHeaderBottom>
           <CryptoName>{cryptoName}</CryptoName>
-          <Label>24h</Label>
+          <ChangeLabel>24h</ChangeLabel>
           {cryptoChange > 0 ? <ArrowUp /> : <ArrowDown />}
           <ChangeValue up={cryptoChange > 0}>
             {formatNumber(Math.abs(cryptoChange))}%

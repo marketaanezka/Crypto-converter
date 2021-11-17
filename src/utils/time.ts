@@ -1,12 +1,13 @@
+const twoDigit = (num: number): string => {
+  return num.toString().padStart(2, '0');
+};
+
 export const timeFromUnix = (unixTime: number): string => {
   const date = new Date(unixTime * 1000);
   const hours = date.getHours();
-  const minutes = date.getMinutes();
-  const seconds = date.getSeconds();
-  const twoDigitMinutes = minutes.toString().padStart(2, '0');
-  const twoDigitSeconds = seconds.toString().padStart(2, '0');
-  const timeZone = date.getTimezoneOffset();
+  const minutes = twoDigit(date.getMinutes());
+  const seconds = twoDigit(date.getSeconds());
   return `
-    ${hours}:${twoDigitMinutes}:${twoDigitSeconds} UTC${timeZone}
+    ${hours}:${minutes}:${seconds}
     `;
 };
