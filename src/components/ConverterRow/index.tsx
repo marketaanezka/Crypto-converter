@@ -37,7 +37,7 @@ const ConverterRow = ({
         customInput={TextField}
         type="tel"
         label={currencyLabel}
-        sx={{ width: ['60%', '60%', '50%'] }}
+        sx={{ width: ['50%', '60%', '50%'] }}
       />
       <CurrencySelect
         selectValue={selectValue}

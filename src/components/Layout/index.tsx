@@ -5,6 +5,7 @@ import ScrollToTopButton from '../ScrollToTopButton';
 import { CryptoDataContext } from '../../state/context';
 import { setDarkMode } from '../../state/reducer';
 import MaterialUISwitch from '../CustomSwitch';
+import { saveMode } from '../../utils/local-storage';
 
 type Props = {
   children?: React.ReactChild | React.ReactChild[];
@@ -26,6 +27,7 @@ const Layout = ({ children }: Props): JSX.Element => {
 
   const toggleTheme = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(setDarkMode(event.target.checked));
+    saveMode(event.target.checked);
   };
 
   return (

@@ -1,3 +1,5 @@
+import { loadMode } from '../utils/local-storage';
+
 export interface CryptoDataState {
   exchangeRate: CryptoDataObject | null;
   cryptoDetails: CryptoDataArray | [];
@@ -9,7 +11,7 @@ export const initialCryptoDataState: CryptoDataState = {
   exchangeRate: null,
   cryptoDetails: [],
   dashboardCurrency: 'czk',
-  darkMode: false,
+  darkMode: loadMode() === 'dark' ? true : false,
 };
 
 export type Rate = { [key: string]: number };

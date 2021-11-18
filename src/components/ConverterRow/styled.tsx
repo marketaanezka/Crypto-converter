@@ -24,4 +24,4 @@ export const SelectOptionName = styled.span`
   overflow: hidden;
 `;
 
-export const CurrencySelectWidth = ['40%', '40%', '50%'];
+export const CurrencySelectWidth = ['50%', '40%', '50%'];

@@ -10,7 +10,6 @@ type Props = {
 
 const Theme = ({ children }: Props): JSX.Element => {
   const { state } = useContext(CryptoDataContext);
-  console.log('theme provider', state);
   return (
     <ThemeProvider theme={state.darkMode ? darkTheme : theme}>
       <MuiThemeProvider darkMode={state.darkMode}>{children}</MuiThemeProvider>
