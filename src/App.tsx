@@ -7,16 +7,16 @@ import CryptoDataProvider from './state/provider';
 
 const App = (): JSX.Element => {
   return (
-    <Theme>
-      <CryptoDataProvider>
+    <CryptoDataProvider>
+      <Theme>
         <div className="App">
           <Layout>
             <Converter />
             <Dashboard />
           </Layout>
         </div>
-      </CryptoDataProvider>
-    </Theme>
+      </Theme>
+    </CryptoDataProvider>
   );
 };
 

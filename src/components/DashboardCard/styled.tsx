@@ -1,24 +1,24 @@
 import styled from 'styled-components';
 import { device } from '../../common/device';
-import { defaultTheme } from '../../common/theme';
+import { theme } from '../../common/theme';
 
 interface Props {
   up: boolean;
 }
 export const Card = styled.article`
-  padding: ${defaultTheme.padding.medium};
+  padding: ${(props) => props.theme.padding.medium};
   background-color: inherit;
   width: 100%;
-  background-color: ${defaultTheme.color.cardBg};
-  box-shadow: ${defaultTheme.cardShadow};
-  border-radius: ${defaultTheme.borderRadius};
+  background-color: ${(props) => props.theme.color.cardBg};
+  box-shadow: ${(props) => props.theme.cardShadow};
+  border-radius: ${(props) => props.theme.borderRadius};
   @media ${device.sm} {
-    padding: ${defaultTheme.padding.large};
+    padding: ${(props) => props.theme.padding.large};
   }
 `;
 
 export const CardHeader = styled.header`
-  margin-bottom: ${defaultTheme.margin.large};
+  margin-bottom: ${(props) => props.theme.margin.large};
 `;
 
 export const CardHeaderTop = styled.div`
@@ -33,13 +33,13 @@ export const CryptoTitle = styled.div`
 `;
 
 export const CryptoSymbol = styled.h3`
-  color: ${defaultTheme.color.text};
+  color: ${(props) => props.theme.color.text};
   width: 65%;
-  font-size: ${defaultTheme.fontSize.title};
+  font-size: ${(props) => props.theme.fontSize.title};
 `;
 
 export const Price = styled.h3`
-  color: ${defaultTheme.color.text};
+  color: ${(props) => props.theme.color.text};
   overflow: hidden;
 `;
 
@@ -51,10 +51,10 @@ export const CardHeaderBottom = styled.div`
 `;
 
 export const CryptoName = styled.p`
-  color: ${defaultTheme.color.text};
+  color: ${(props) => props.theme.color.text};
   flex-grow: 2;
   text-align: start;
-  font-size: ${defaultTheme.fontSize.medium};
+  font-size: ${(props) => props.theme.fontSize.medium};
   text-transform: capitalize;
 `;
 
@@ -64,7 +64,7 @@ export const ArrowUp = styled.div`
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
 
-  border-bottom: 9px solid ${defaultTheme.color.green};
+  border-bottom: 9px solid ${(props) => props.theme.color.green};
   margin-right: 0.25rem;
 `;
 
@@ -74,23 +74,22 @@ export const ArrowDown = styled.div`
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
 
-  border-top: 9px solid ${defaultTheme.color.red};
+  border-top: 9px solid ${(props) => props.theme.color.red};
 
   margin-right: 0.25rem;
 `;
 
 export const ChangeLabel = styled.p`
-  color: ${defaultTheme.color.label};
-  font-size: ${defaultTheme.fontSize.small};
+  color: ${(props) => props.theme.color.label};
+  font-size: ${(props) => props.theme.fontSize.small};
   margin-right: 0.5rem;
 `;
 
 export const ChangeValue = styled.span<Props>`
-  color: ${(props) =>
-    props.up ? defaultTheme.color.green : defaultTheme.color.red};
+  color: ${(props) => (props.up ? theme.color.green : theme.color.red)};
 `;
 export const Detail = styled.div`
-  margin-bottom: ${defaultTheme.margin.small};
+  margin-bottom: ${(props) => props.theme.margin.small};
   @media ${device.sm} {
     display: flex;
     align-items: baseline;
@@ -98,14 +97,14 @@ export const Detail = styled.div`
 `;
 
 export const Label = styled.p`
-  color: ${defaultTheme.color.label};
-  font-size: ${defaultTheme.fontSize.small};
+  color: ${(props) => props.theme.color.label};
+  font-size: ${(props) => props.theme.fontSize.small};
   margin-right: 0.5rem;
   text-transform: capitalize;
   width: 5.5rem;
 `;
 
 export const Amount = styled.p`
-  color: ${defaultTheme.color.text};
-  font-size: ${defaultTheme.fontSize.standard};
+  color: ${(props) => props.theme.color.text};
+  font-size: ${(props) => props.theme.fontSize.standard};
 `;

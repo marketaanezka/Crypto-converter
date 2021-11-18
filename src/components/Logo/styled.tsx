@@ -1,16 +1,9 @@
 import styled from 'styled-components';
-import { centerBlock, defaultTheme } from '../../common/theme';
+import { centerBlock } from '../../common/theme';
 
-interface Props {
-  darkMode: boolean;
-}
-
-export const LogoWrapper = styled.div<Props>`
+export const LogoWrapper = styled.div`
   ${centerBlock}
   svg path {
-    fill: ${(props) =>
-      props.darkMode
-        ? defaultTheme.color.layoutBg
-        : defaultTheme.color.layoutBg};
+    fill: ${(props) => props.theme.color.layoutBg};
   }
 `;

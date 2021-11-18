@@ -44,7 +44,7 @@ const commonThemeProperties = {
   cardShadow: 'rgba(136, 159, 184, 0.145) 0px 6px 12px',
 };
 
-export const defaultTheme: DefaultTheme = {
+export const theme: DefaultTheme = {
   color: {
     cardBg: '#FFFF',
     text: '#324637',
@@ -59,11 +59,11 @@ export const defaultTheme: DefaultTheme = {
 
 export const darkTheme: DefaultTheme = {
   color: {
-    cardBg: '#FFFF',
-    text: '#323C46',
-    headerBg: '#436fe5',
-    label: '#a0a6af',
-    layoutBg: '#f4f8fb',
+    cardBg: '#2e5e85',
+    text: '#ffffff',
+    headerBg: '#cbd5f2',
+    label: '#e4e4e4',
+    layoutBg: '#183c57',
     red: '#eb4c9b',
     green: '#1ab586',
   },

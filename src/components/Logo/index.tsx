@@ -4,7 +4,7 @@ import { LogoWrapper } from './styled';
 
 const Logo = (): JSX.Element => {
   return (
-    <LogoWrapper darkMode={false}>
+    <LogoWrapper>
       <LogoSvg width={35} height={35} />
     </LogoWrapper>
   );
