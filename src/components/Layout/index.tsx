@@ -1,11 +1,7 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
-import { LayoutWrapper, HeaderBar } from './styled';
-import Logo from '../Logo';
+import React, { useEffect, useState } from 'react';
+import { LayoutWrapper } from './styled';
 import ScrollToTopButton from '../ScrollToTopButton';
-import { CryptoDataContext } from '../../state/context';
-import { setDarkMode } from '../../state/reducer';
-import MaterialUISwitch from '../CustomSwitch';
-import { saveMode } from '../../utils/local-storage';
+import Header from '../Header';
 
 type Props = {
   children?: React.ReactChild | React.ReactChild[];
@@ -13,7 +9,6 @@ type Props = {
 
 const Layout = ({ children }: Props): JSX.Element => {
   const [showButton, setShowButton] = useState(false);
-  const { state, dispatch } = useContext(CryptoDataContext);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -25,18 +20,10 @@ const Layout = ({ children }: Props): JSX.Element => {
     });
   }, []);
 
-  const toggleTheme = (event: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setDarkMode(event.target.checked));
-    saveMode(event.target.checked);
-  };
-
   return (
     <LayoutWrapper>
-      <HeaderBar>
-        <Logo />
-        <MaterialUISwitch checked={state.darkMode} onChange={toggleTheme} />
-        {showButton && <ScrollToTopButton />}
-      </HeaderBar>
+      <Header />
+      {showButton && <ScrollToTopButton />}
       {children}
     </LayoutWrapper>
   );
