@@ -1,8 +1,10 @@
 import { Switch } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { LayoutWrapper, HeaderBar } from './styled';
 import Logo from '../Logo';
 import ScrollToTopButton from '../ScrollToTopButton';
+import { CryptoDataContext } from '../../state/context';
+import { setDarkMode } from '../../state/reducer';
 
 type Props = {
   children?: React.ReactChild | React.ReactChild[];
@@ -10,6 +12,7 @@ type Props = {
 
 const Layout = ({ children }: Props): JSX.Element => {
   const [showButton, setShowButton] = useState(false);
+  const { state, dispatch } = useContext(CryptoDataContext);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -21,12 +24,19 @@ const Layout = ({ children }: Props): JSX.Element => {
     });
   }, []);
 
+  const toggleTheme = (event: ChangeEvent<HTMLInputElement>) => {
+    dispatch(setDarkMode(!event.target.checked));
+  };
+
   return (
     <LayoutWrapper>
       <HeaderBar>
         <Logo />
-        {/* switch only static will control dark mode */}
-        <Switch color="default" />
+        <Switch
+          color="default"
+          checked={!state.darkMode}
+          onChange={toggleTheme}
+        />
         {showButton && <ScrollToTopButton />}
       </HeaderBar>
       {children}

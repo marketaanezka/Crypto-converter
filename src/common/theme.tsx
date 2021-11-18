@@ -41,32 +41,33 @@ const commonThemeProperties = {
     large: '1.5rem',
   },
   borderRadius: '8px',
-  cardShadow: 'rgba(136, 159, 184, 0.145) 0px 6px 12px',
 };
 
 export const theme: DefaultTheme = {
   color: {
+    layoutBg: '#f4f8fb',
     cardBg: '#FFFF',
     text: '#324637',
     headerBg: '#436fe5',
     label: '#a0a6af',
-    layoutBg: '#f4f8fb',
     red: '#eb4c9b',
     green: '#1ab586',
   },
+  cardShadow: 'rgba(136, 159, 184, 0.145) 0px 6px 12px',
   ...commonThemeProperties,
 };
 
 export const darkTheme: DefaultTheme = {
   color: {
-    cardBg: '#2e5e85',
+    layoutBg: '#082c46',
+    cardBg: '#1b3e5a',
     text: '#ffffff',
     headerBg: '#cbd5f2',
     label: '#e4e4e4',
-    layoutBg: '#183c57',
     red: '#eb4c9b',
     green: '#1ab586',
   },
+  cardShadow: 'rgb(6 24 38) 0px 6px 12px',
   ...commonThemeProperties,
 };
 

@@ -5,6 +5,7 @@ import {
   SetCryptoDataObject,
   SetCryptoDetails,
   SetDashboardCurrency,
+  SetDarkMode,
 } from './actions';
 import { CryptoDataArray, CryptoDataObject, CryptoDataState } from './state';
 
@@ -19,6 +20,8 @@ export const cryptoDataReducer = (
       return { ...state, exchangeRate: action.payload };
     case ActionType.SetCryptoDetails:
       return { ...state, cryptoDetails: action.payload };
+    case ActionType.SetDarkMode:
+      return { ...state, darkMode: action.payload };
     default:
       return state;
   }
@@ -40,5 +43,10 @@ export const setCryptoDataObject = (
 
 export const setCryptoDetails = (value: CryptoDataArray): SetCryptoDetails => ({
   type: ActionType.SetCryptoDetails,
+  payload: value,
+});
+
+export const setDarkMode = (value: boolean): SetDarkMode => ({
+  type: ActionType.SetDarkMode,
   payload: value,
 });

@@ -4,6 +4,7 @@ export enum ActionType {
   SetDashboardCurrency,
   SetCryptoDataObject,
   SetCryptoDetails,
+  SetDarkMode,
 }
 
 export interface SetDashboardCurrency {
@@ -21,9 +22,15 @@ export interface SetCryptoDetails {
   payload: CryptoDataArray;
 }
 
+export interface SetDarkMode {
+  type: ActionType.SetDarkMode;
+  payload: boolean;
+}
+
 export type Actions =
   | SetDashboardCurrency
   | SetCryptoDataObject
-  | SetCryptoDetails;
+  | SetCryptoDetails
+  | SetDarkMode;
 
 //https://github.com/hellomuthu23/react-context-example
