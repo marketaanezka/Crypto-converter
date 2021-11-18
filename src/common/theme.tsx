@@ -47,7 +47,7 @@ export const theme: DefaultTheme = {
   color: {
     layoutBg: '#f4f8fb',
     cardBg: '#FFFF',
-    text: '#324637',
+    text: '#001e3c',
     headerBg: '#436fe5',
     label: '#a0a6af',
     red: '#eb4c9b',

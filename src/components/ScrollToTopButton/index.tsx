@@ -1,6 +1,5 @@
 import React from 'react';
-import { IconStyle } from './styled';
-import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
+import { ArrowUp } from './styled';
 import { IconButton } from '@mui/material';
 import { scrollToTop } from '../../utils/scroll';
 
@@ -11,7 +10,8 @@ const ScrollToTopButton = (): JSX.Element => (
     onClick={scrollToTop}
     sx={{ position: 'fixed', bottom: '2rem', right: '2rem' }}
   >
-    <ArrowCircleUpIcon style={IconStyle} />
+    {/* <ArrowCircleUpIcon style={IconStyle} /> */}
+    <ArrowUp />
   </IconButton>
 );
 

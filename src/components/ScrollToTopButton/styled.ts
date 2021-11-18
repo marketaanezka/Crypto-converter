@@ -1,6 +1,7 @@
-import { theme } from '../../common/theme';
+import styled from 'styled-components';
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 
-export const IconStyle = {
-  fontSize: 45,
-  color: theme.color.headerBg,
-};
+export const ArrowUp = styled(ArrowCircleUpIcon)`
+  color: ${(props) => props.theme.color.headerBg};
+  transform: scale(1.5);
+`;

@@ -1,10 +1,10 @@
-import { Switch } from '@mui/material';
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { LayoutWrapper, HeaderBar } from './styled';
 import Logo from '../Logo';
 import ScrollToTopButton from '../ScrollToTopButton';
 import { CryptoDataContext } from '../../state/context';
 import { setDarkMode } from '../../state/reducer';
+import MaterialUISwitch from '../CustomSwitch';
 
 type Props = {
   children?: React.ReactChild | React.ReactChild[];
@@ -25,18 +25,14 @@ const Layout = ({ children }: Props): JSX.Element => {
   }, []);
 
   const toggleTheme = (event: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setDarkMode(!event.target.checked));
+    dispatch(setDarkMode(event.target.checked));
   };
 
   return (
     <LayoutWrapper>
       <HeaderBar>
         <Logo />
-        <Switch
-          color="default"
-          checked={!state.darkMode}
-          onChange={toggleTheme}
-        />
+        <MaterialUISwitch checked={state.darkMode} onChange={toggleTheme} />
         {showButton && <ScrollToTopButton />}
       </HeaderBar>
       {children}

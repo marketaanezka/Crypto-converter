@@ -13,7 +13,7 @@ const Theme = ({ children }: Props): JSX.Element => {
   console.log('theme provider', state);
   return (
     <ThemeProvider theme={state.darkMode ? darkTheme : theme}>
-      <MuiThemeProvider>{children}</MuiThemeProvider>
+      <MuiThemeProvider darkMode={state.darkMode}>{children}</MuiThemeProvider>
     </ThemeProvider>
   );
 };
