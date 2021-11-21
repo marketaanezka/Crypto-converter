@@ -1,4 +1,5 @@
 import { loadMode } from '../utils/local-storage';
+import { userPrefersDark } from '../utils/user-mode-preference';
 
 export interface CryptoDataState {
   exchangeRate: CryptoDataObject | null;
@@ -11,7 +12,7 @@ export const initialCryptoDataState: CryptoDataState = {
   exchangeRate: null,
   cryptoDetails: [],
   dashboardCurrency: 'czk',
-  darkMode: loadMode() === 'dark' ? true : false,
+  darkMode: loadMode() === 'dark' || userPrefersDark ? true : false,
 };
 
 export type Rate = { [key: string]: number };
