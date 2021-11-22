@@ -1,13 +1,25 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FormattedCryptoObject } from '../../config/types';
 import { CryptoDataContext } from '../../state/context';
 import DashboardCard from '../DashboardCard';
+import ScrollToTopButton from '../ScrollToTopButton';
 import { DisplayGrid } from './styled';
 
-const DashboardDisplay = (): JSX.Element => {
+const DashboardGrid = (): JSX.Element => {
+  const [showButton, setShowButton] = useState(false);
   const { state } = useContext(CryptoDataContext);
   const newData = state.cryptoDetails as FormattedCryptoObject[];
   const currency = state.dashboardCurrency;
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    });
+  }, []);
 
   return (
     <DisplayGrid>
@@ -23,8 +35,9 @@ const DashboardDisplay = (): JSX.Element => {
           lastUpdated={cryptoItem['last_updated_at']}
         />
       ))}
+      {showButton && <ScrollToTopButton />}
     </DisplayGrid>
   );
 };
 
-export default DashboardDisplay;
+export default DashboardGrid;

@@ -4,7 +4,6 @@ import Layout from './components/Layout/';
 import Dashboard from './components/Dashboard';
 import Theme from './common/ThemeProvider';
 import CryptoDataProvider from './state/provider';
-import Table from './components/Table';
 
 const App = (): JSX.Element => {
   return (
@@ -14,7 +13,6 @@ const App = (): JSX.Element => {
           <Layout>
             <Converter />
             <Dashboard />
-            <Table />
           </Layout>
         </div>
       </Theme>

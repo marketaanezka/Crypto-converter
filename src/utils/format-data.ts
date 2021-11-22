@@ -17,3 +17,8 @@ export const formatAPIdata = (data: CryptoDataObject): CryptoDataArray => {
   });
   return formattedArray;
 };
+
+export const capitalizeString = (str: string): string => {
+  const result = str.charAt(0).toUpperCase() + str.slice(1);
+  return result;
+};

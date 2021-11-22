@@ -6,4 +6,5 @@ export const IconWrapper = styled.div`
   margin-right: 6px;
   border-radius: 50%;
   padding: 0.2rem;
+  background-color: #ffffff8c;
 `;

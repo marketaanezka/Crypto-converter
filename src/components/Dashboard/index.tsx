@@ -1,6 +1,7 @@
 import React from 'react';
-import DashboardDisplay from '../DashboardDisplay';
+import DashboardGrid from '../DashboardGrid';
 import DashboardHeader from '../DashboardHeader';
+import DashboardTable from '../DashboardTable';
 import { DashboardWrapper, Title } from './styled';
 
 const Dashboard = (): JSX.Element => {
@@ -8,7 +9,8 @@ const Dashboard = (): JSX.Element => {
     <DashboardWrapper>
       <Title>Current crypto data</Title>
       <DashboardHeader />
-      <DashboardDisplay />
+      <DashboardTable />
+      <DashboardGrid />
     </DashboardWrapper>
   );
 };

@@ -45,7 +45,7 @@ const commonThemeProperties = {
 
 export const theme: DefaultTheme = {
   color: {
-    layoutBg: '#f4f8fb',
+    layoutBg: '#dce2f1',
     cardBg: '#FFFF',
     text: '#001e3c',
     contrastBg: '#436fe5',
