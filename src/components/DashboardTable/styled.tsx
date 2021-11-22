@@ -11,4 +11,16 @@ export const TableWrapper = styled.section`
   @media ${device.sm} {
     padding: ${(props) => props.theme.padding.large};
   }
+
+  margin-bottom: 2rem;
+  .crypto-name-cell {
+    text-transform: capitalize;
+  }
+
+  .change-cell-up {
+    color: ${(props) => props.theme.color.green};
+  }
+  .change-cell-down {
+    color: ${(props) => props.theme.color.red};
+  }
 `;

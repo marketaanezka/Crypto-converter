@@ -14,7 +14,8 @@ const DashboardTable = (): JSX.Element => {
   const currency = state.dashboardCurrency;
 
   const newRows = newData.map((cryptoItem, index) => {
-    const row = {
+    return {
+      id: index + 1,
       icon: cryptoItem.crypto,
       code: getSymbol(cryptoItem.crypto),
       name: cryptoItem.crypto,
@@ -23,18 +24,6 @@ const DashboardTable = (): JSX.Element => {
       volume: intlNumberFormat(cryptoItem[`${currency}_24h_vol`], currency),
       cap: intlNumberFormat(cryptoItem[`${currency}_market_cap`], currency),
       updated: timeFromUnix(cryptoItem['last_updated_at']),
-    };
-
-    return {
-      id: index + 1,
-      icon: row.icon,
-      code: row.code,
-      name: row.name,
-      price: row.price,
-      change: row.change,
-      volume: row.volume,
-      cap: row.cap,
-      updated: row.updated,
     };
   });
 
@@ -47,10 +36,21 @@ const DashboardTable = (): JSX.Element => {
       headerName: '',
       width: 60,
     },
-    { field: 'code', headerName: 'Code', width: 70 },
-    { field: 'name', headerName: 'Name', width: 100 },
-    { field: 'price', headerName: 'Price', width: 180 },
-    { field: 'change', headerName: '24h Change', width: 180 },
+    { field: 'code', headerName: 'Crypto', width: 80 },
+    {
+      field: 'name',
+      headerName: 'Name',
+      width: 100,
+      cellClassName: 'crypto-name-cell',
+    },
+    { field: 'price', headerName: 'Price', width: 160 },
+    {
+      field: 'change',
+      headerName: '24h Change',
+      width: 140,
+      cellClassName: (params) =>
+        `change-cell-${params.row.change > 0 ? 'up' : 'down'}`,
+    },
     { field: 'volume', headerName: '24h Volume', width: 180 },
     { field: 'cap', headerName: 'Market Cap', width: 180 },
     { field: 'updated', headerName: 'Last Updated', width: 150 },
