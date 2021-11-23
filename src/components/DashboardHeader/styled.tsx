@@ -6,4 +6,4 @@ export const Header = styled.section`
   padding: ${(props) => props.theme.padding.small};
 `;
 
-export const DashboardSelectWidth = ['60%', '45%', '20%'];
+export const DashboardSelectWidth = ['60%', '45%', '30%'];
