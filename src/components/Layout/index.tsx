@@ -1,6 +1,7 @@
 import React from 'react';
-import { LayoutWrapper } from './styled';
+
 import Header from '../Header';
+import { LayoutWrapper } from './styled';
 
 type Props = {
   children?: React.ReactChild | React.ReactChild[];

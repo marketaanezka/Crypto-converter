@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
-import { DashboardSelectWidth, Header } from './styled';
-import CurrencySelect from '../CurrencySelect';
-import { fiatValues } from '../../config/data';
+
 import { SelectChangeEvent } from '@mui/material';
-import { CryptoDataContext } from '../../state/context';
+
+import { fiatValues } from '../../config/data';
 import { DashboardCurrency } from '../../config/types';
+import { CryptoDataContext } from '../../state/context';
 import { setDashboardCurrency } from '../../state/reducer';
+import CurrencySelect from '../CurrencySelect';
 import ToggleViewButtons from '../ToggleViewButtons';
+import { DashboardSelectWidth, Header } from './styled';
 
 interface Props {
   handleChangeView: React.Dispatch<React.SetStateAction<string>>;

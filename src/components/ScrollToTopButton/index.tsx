@@ -1,7 +1,9 @@
 import React from 'react';
-import { ArrowUp } from './styled';
+
 import { IconButton } from '@mui/material';
+
 import { scrollToTop } from '../../utils/scroll';
+import { ArrowUp } from './styled';
 
 const ScrollToTopButton = (): JSX.Element => (
   <IconButton

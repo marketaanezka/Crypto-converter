@@ -1,8 +1,10 @@
 import React, { ReactNode } from 'react';
+
 import { MenuItem, Select, SelectChangeEvent } from '@mui/material';
+
 import { CurrencyObject } from '../../config/types';
-import { OptionWrapper, SelectOptionName } from './styled';
 import Icon from '../Icon';
+import { OptionWrapper, SelectOptionName } from './styled';
 
 interface Props {
   selectValue: string;

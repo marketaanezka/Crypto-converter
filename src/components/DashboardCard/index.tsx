@@ -1,25 +1,26 @@
 import React from 'react';
-import {
-  Label,
-  Card,
-  CardHeader,
-  CryptoSymbol,
-  CryptoName,
-  Price,
-  ArrowUp,
-  ArrowDown,
-  ChangeValue,
-  Detail,
-  Amount,
-  CardHeaderTop,
-  CardHeaderBottom,
-  CryptoTitle,
-  ChangeLabel,
-} from './styled';
-import Icon from '../Icon';
+
 import { getSymbol } from '../../config/data';
 import { formatNumber, intlNumberFormat } from '../../utils/format-number';
 import { timeFromUnix } from '../../utils/time';
+import Icon from '../Icon';
+import {
+  Amount,
+  ArrowDown,
+  ArrowUp,
+  Card,
+  CardHeader,
+  CardHeaderBottom,
+  CardHeaderTop,
+  ChangeLabel,
+  ChangeValue,
+  CryptoName,
+  CryptoSymbol,
+  CryptoTitle,
+  Detail,
+  Label,
+  Price,
+} from './styled';
 
 interface Props {
   cryptoName: string;

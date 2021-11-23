@@ -1,10 +1,11 @@
 import React, { ChangeEvent, useContext } from 'react';
-import { HeaderBar } from './styled';
-import MaterialUISwitch from '../CustomSwitch';
-import Logo from '../Logo';
+
+import { CryptoDataContext } from '../../state/context';
 import { setDarkMode } from '../../state/reducer';
 import { saveMode } from '../../utils/local-storage';
-import { CryptoDataContext } from '../../state/context';
+import MaterialUISwitch from '../CustomSwitch';
+import Logo from '../Logo';
+import { HeaderBar } from './styled';
 
 const Header = (): JSX.Element => {
   const { state, dispatch } = useContext(CryptoDataContext);

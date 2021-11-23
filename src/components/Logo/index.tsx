@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ReactComponent as LogoSvg } from '../../assets/logo/mwlogo02.svg';
 import { LogoWrapper } from './styled';
 

@@ -1,7 +1,8 @@
 import React from 'react';
-import { ToggleButton, ToggleButtonGroup } from '@mui/material';
+
 import AppsIcon from '@mui/icons-material/Apps';
 import TableRowsIcon from '@mui/icons-material/TableRows';
+import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 
 interface Props {
   handleChangeView: React.Dispatch<React.SetStateAction<string>>;

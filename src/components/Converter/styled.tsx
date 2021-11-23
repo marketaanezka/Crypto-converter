@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { centerBlock } from '../../common/theme';
+
 import { device } from '../../common/device';
+import { centerBlock } from '../../common/theme';
 
 export const ConverterWrapper = styled.section`
   margin: 0 auto;

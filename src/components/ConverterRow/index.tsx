@@ -1,9 +1,11 @@
 import React, { ReactNode } from 'react';
-import { CurrencyObject } from '../../config/types';
-import { TextField, SelectChangeEvent } from '@mui/material';
-import { RowWrapper, CurrencySelectWidth } from './styled';
 import NumberFormat from 'react-number-format';
+
+import { SelectChangeEvent, TextField } from '@mui/material';
+
+import { CurrencyObject } from '../../config/types';
 import CurrencySelect from '../CurrencySelect';
+import { CurrencySelectWidth, RowWrapper } from './styled';
 
 interface Props {
   inputValue: number;

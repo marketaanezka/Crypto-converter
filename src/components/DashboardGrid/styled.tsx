@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { device } from '../../common/device';
 
 export const DisplayGrid = styled.div`
   display: grid;

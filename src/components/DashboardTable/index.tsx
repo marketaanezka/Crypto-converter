@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
+
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import { CryptoDataContext } from '../../state/context';
-import { FormattedCryptoObject } from '../../config/types';
+
 import { getSymbol } from '../../config/data';
-import Icon from '../Icon';
-import { TableWrapper } from './styled';
+import { FormattedCryptoObject } from '../../config/types';
+import { CryptoDataContext } from '../../state/context';
 import { intlNumberFormat } from '../../utils/format-number';
 import { timeFromUnix } from '../../utils/time';
+import Icon from '../Icon';
+import { TableWrapper } from './styled';
 
 const DashboardTable = (): JSX.Element => {
   const { state } = useContext(CryptoDataContext);

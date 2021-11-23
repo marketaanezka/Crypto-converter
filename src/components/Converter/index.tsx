@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
+
+import { cryptoValues, fiatValues, getSymbol } from '../../config/data';
+import { CryptoDataContext } from '../../state/context';
 import { formatForConversion } from '../../utils/format-number';
 import ConverterRow from '../ConverterRow';
-import { CryptoDataContext } from '../../state/context';
 import { ConverterWrapper, ConvertSign, Title } from './styled';
-import { cryptoValues, fiatValues, getSymbol } from '../../config/data';
 
 const Converter = (): JSX.Element => {
   const [fromCrypto, setFromCrypto] = useState('bitcoin');

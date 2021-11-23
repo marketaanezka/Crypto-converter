@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { device } from '../../common/device';
 
 export const TableWrapper = styled.section`
