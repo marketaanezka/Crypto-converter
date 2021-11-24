@@ -1,9 +1,7 @@
 import React from 'react';
 
 import Theme from './common/ThemeProvider';
-import Converter from './components/Converter';
-import Dashboard from './components/Dashboard';
-import Layout from './components/Layout/';
+import MainPage from './components/MainPage/MainPage';
 import CryptoDataProvider from './state/provider';
 
 const App = (): JSX.Element => {
@@ -11,10 +9,7 @@ const App = (): JSX.Element => {
     <CryptoDataProvider>
       <Theme>
         <div className="App">
-          <Layout>
-            <Converter />
-            <Dashboard />
-          </Layout>
+          <MainPage />
         </div>
       </Theme>
     </CryptoDataProvider>

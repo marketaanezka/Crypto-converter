@@ -12,7 +12,6 @@ const ScrollToTopButton = (): JSX.Element => (
     onClick={scrollToTop}
     sx={{ position: 'fixed', bottom: '2rem', right: '2rem' }}
   >
-    {/* <ArrowCircleUpIcon style={IconStyle} /> */}
     <ArrowUp />
   </IconButton>
 );
