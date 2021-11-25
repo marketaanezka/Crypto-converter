@@ -1,5 +1,4 @@
 import { DefaultTheme } from 'styled-components';
-import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
@@ -16,6 +15,7 @@ declare module 'styled-components' {
       [key: string]: string;
     };
     borderRadius: string;
+    headerShadow: string;
     cardShadow: string;
   }
 }
@@ -53,7 +53,10 @@ export const theme: DefaultTheme = {
     red: '#eb4c9b',
     green: '#1ab586',
   },
-  cardShadow: 'rgba(136, 159, 184, 0.145) 0px 6px 12px',
+  headerShadow:
+    'rgb(167 175 183 / 32%) 5px 6px 5px 1px, rgb(190 205 245) 0px 2px 4px 0px;',
+  cardShadow:
+    'rgb(14 23 102 / 40%) 0px 2px 6px, rgb(233 241 248 / 75%) 0px 2px 4px',
   ...commonThemeProperties,
 };
 
@@ -64,11 +67,12 @@ export const darkTheme: DefaultTheme = {
     text: '#ffffff',
     contrastBg: '#cbd5f2',
     label: '#bbc5ce',
-    //'#c6dbec',
     red: '#eb4c9b',
     green: '#1ab586',
   },
-  cardShadow: 'rgb(6 24 38) 0px 6px 12px',
+  headerShadow: 'rgb(0 0 0 / 10%) 0px 4px 4px, rgb(6 8 20 / 70%) 0px 1px 10px',
+  cardShadow:
+    'rgb(6 8 20 / 60%) 0px 1px 8px 0px, rgb(0 0 0 / 15%) 0px 4px 4px 0px',
   ...commonThemeProperties,
 };
 

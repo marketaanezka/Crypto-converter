@@ -8,7 +8,6 @@ import MainScreen from '../MainScreen';
 
 export const MainPage = (): JSX.Element => {
   const { state } = useContext(CryptoDataContext);
-  console.log('main page', state);
   return (
     <Layout>
       {state.error !== null ? (

@@ -5,4 +5,5 @@ export const HeaderBar = styled.header`
   display: flex;
   justify-content: space-between;
   background: ${(props) => props.theme.color.contrastBg};
+  box-shadow: ${(props) => props.theme.headerShadow};
 `;

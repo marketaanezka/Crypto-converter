@@ -25,7 +25,6 @@ const CryptoDataProvider = ({ children }: Props): JSX.Element => {
     getExchangeRate(URL_BASE, cryptoQuery, fiatQuery);
   }, []);
 
-  // https://stackoverflow.com/questions/53146795/react-usereducer-async-data-fetch
   const getExchangeRate = async (
     url: string,
     crypto: string,
@@ -41,7 +40,7 @@ const CryptoDataProvider = ({ children }: Props): JSX.Element => {
         dispatch(setCryptoDetails(formatAPIdata(data)));
       } else {
         dispatch(setError(`error ${response.status.toString()}`));
-        console.log('There was an error: ', response);
+        console.log('Error response: ', response);
       }
     } catch (err) {
       dispatch(setError('unexpected error'));
