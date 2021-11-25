@@ -33,7 +33,7 @@ const CryptoDataProvider = ({ children }: Props): JSX.Element => {
   ): Promise<void> => {
     try {
       const response = await fetch(
-        `${url}/pric?ids=${crypto}&vs_currencies=${currency}&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true`
+        `${url}/price?ids=${crypto}&vs_currencies=${currency}&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true`
       );
       if (response.status === 200) {
         const data = await response.json();

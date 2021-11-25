@@ -31,7 +31,7 @@ const DashboardTable = (): JSX.Element => {
 
   const columns: GridColDef[] = [
     {
-      field: 'icon',
+      field: 'Icon',
       renderCell: (params) => {
         return <Icon code={params.row.name} size={20} />;
       },

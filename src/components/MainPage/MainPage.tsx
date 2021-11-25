@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
 
-import { CircularProgress } from '@mui/material';
-
 import { CryptoDataContext } from '../../state/context';
-import Converter from '../Converter';
-import Dashboard from '../Dashboard';
 import ErrorScreen from '../ErrorScreen';
 import Layout from '../Layout/';
+import LoadingScreen from '../LoadingScreen';
+import MainScreen from '../MainScreen';
 
 export const MainPage = (): JSX.Element => {
   const { state } = useContext(CryptoDataContext);
@@ -16,12 +14,9 @@ export const MainPage = (): JSX.Element => {
       {state.error !== null ? (
         <ErrorScreen errorMessage={state.error} />
       ) : state.exchangeRate === null ? (
-        <CircularProgress />
+        <LoadingScreen />
       ) : (
-        <>
-          <Converter />
-          <Dashboard />
-        </>
+        <MainScreen />
       )}
     </Layout>
   );
