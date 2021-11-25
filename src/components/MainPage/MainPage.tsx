@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
 
+import { CircularProgress } from '@mui/material';
+
 import { CryptoDataContext } from '../../state/context';
 import Converter from '../Converter';
 import Dashboard from '../Dashboard';
+import ErrorScreen from '../ErrorScreen';
 import Layout from '../Layout/';
 
 export const MainPage = (): JSX.Element => {
@@ -10,8 +13,10 @@ export const MainPage = (): JSX.Element => {
   console.log('main page', state);
   return (
     <Layout>
-      {state.exchangeRate === null ? (
-        <p>Loading...</p>
+      {state.error !== null ? (
+        <ErrorScreen errorMessage={state.error} />
+      ) : state.exchangeRate === null ? (
+        <CircularProgress />
       ) : (
         <>
           <Converter />

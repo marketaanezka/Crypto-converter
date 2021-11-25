@@ -1,4 +1,5 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useEffect, useReducer } from 'react';
+
 import { cryptoQuery, fiatQuery, URL_BASE } from '../config/data';
 import { formatAPIdata } from '../utils/format-data';
 import { CryptoDataContext } from './context';
@@ -6,6 +7,7 @@ import {
   cryptoDataReducer,
   setCryptoDataObject,
   setCryptoDetails,
+  setError
 } from './reducer';
 import { initialCryptoDataState } from './state';
 
@@ -31,13 +33,19 @@ const CryptoDataProvider = ({ children }: Props): JSX.Element => {
   ): Promise<void> => {
     try {
       const response = await fetch(
-        `${url}/price?ids=${crypto}&vs_currencies=${currency}&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true`
+        `${url}/pric?ids=${crypto}&vs_currencies=${currency}&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true`
       );
-      const data = await response.json();
-      dispatch(setCryptoDataObject(data));
-      dispatch(setCryptoDetails(formatAPIdata(data)));
+      if (response.status === 200) {
+        const data = await response.json();
+        dispatch(setCryptoDataObject(data));
+        dispatch(setCryptoDetails(formatAPIdata(data)));
+      } else {
+        dispatch(setError(`error ${response.status.toString()}`));
+        console.log('There was an error: ', response);
+      }
     } catch (err) {
-      console.error('rejected', err);
+      dispatch(setError('unexpected error'));
+      console.error('Error caught: ', err);
     }
   };
 

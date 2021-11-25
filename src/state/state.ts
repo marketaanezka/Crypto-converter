@@ -6,6 +6,7 @@ export interface CryptoDataState {
   cryptoDetails: CryptoDataArray | [];
   dashboardCurrency: DashboardCurrency;
   darkMode: boolean;
+  error: string | null;
 }
 
 export const initialCryptoDataState: CryptoDataState = {
@@ -13,6 +14,7 @@ export const initialCryptoDataState: CryptoDataState = {
   cryptoDetails: [],
   dashboardCurrency: 'czk',
   darkMode: loadMode() === 'dark' || userPrefersDark ? true : false,
+  error: null,
 };
 
 export type Rate = { [key: string]: number };

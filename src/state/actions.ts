@@ -5,6 +5,7 @@ export enum ActionType {
   SetCryptoDataObject,
   SetCryptoDetails,
   SetDarkMode,
+  SetError,
 }
 
 export interface SetDashboardCurrency {
@@ -27,10 +28,16 @@ export interface SetDarkMode {
   payload: boolean;
 }
 
+export interface SetError {
+  type: ActionType.SetError;
+  payload: string;
+}
+
 export type Actions =
   | SetDashboardCurrency
   | SetCryptoDataObject
   | SetCryptoDetails
-  | SetDarkMode;
+  | SetDarkMode
+  | SetError;
 
 //https://github.com/hellomuthu23/react-context-example
