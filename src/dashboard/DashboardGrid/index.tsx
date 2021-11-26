@@ -1,16 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import ScrollToTopButton from '../../components/ScrollToTopButton';
-import { FormattedCryptoObject } from '../../config/types';
-import { CryptoDataContext } from '../../state/context';
+import { DashboardCurrency, FormattedCryptoObject } from '../../config/types';
 import DashboardCard from '../DashboardCard';
 import { DisplayGrid } from './styled';
 
-const DashboardGrid = (): JSX.Element => {
+interface Props {
+  cryptoData: FormattedCryptoObject[];
+  currency: DashboardCurrency;
+}
+
+const DashboardGrid = ({ cryptoData, currency }: Props): JSX.Element => {
   const [showButton, setShowButton] = useState(false);
-  const { state } = useContext(CryptoDataContext);
-  const newData = state.cryptoDetails as FormattedCryptoObject[];
-  const currency = state.dashboardCurrency;
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -24,7 +25,7 @@ const DashboardGrid = (): JSX.Element => {
 
   return (
     <DisplayGrid>
-      {newData.map((cryptoItem) => (
+      {cryptoData.map((cryptoItem) => (
         <DashboardCard
           key={cryptoItem.crypto}
           cryptoName={cryptoItem.crypto}

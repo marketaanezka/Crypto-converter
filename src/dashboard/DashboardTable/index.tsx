@@ -1,21 +1,21 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
 import Icon from '../../components/Icon';
 import { getSymbol } from '../../config/data';
-import { FormattedCryptoObject } from '../../config/types';
-import { CryptoDataContext } from '../../state/context';
+import { DashboardCurrency, FormattedCryptoObject } from '../../config/types';
 import { intlNumberFormat } from '../../utils/format-number';
 import { timeFromUnix } from '../../utils/time';
 import { TableWrapper } from './styled';
 
-const DashboardTable = (): JSX.Element => {
-  const { state } = useContext(CryptoDataContext);
-  const newData = state.cryptoDetails as FormattedCryptoObject[];
-  const currency = state.dashboardCurrency;
+interface Props {
+  cryptoData: FormattedCryptoObject[];
+  currency: DashboardCurrency;
+}
 
-  const newRows = newData.map((cryptoItem, index) => {
+const DashboardTable = ({ cryptoData, currency }: Props): JSX.Element => {
+  const newRows = cryptoData.map((cryptoItem, index) => {
     return {
       id: index + 1,
       icon: cryptoItem.crypto,
