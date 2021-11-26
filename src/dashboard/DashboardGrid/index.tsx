@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 
+import ScrollToTopButton from '../../components/ScrollToTopButton';
 import { FormattedCryptoObject } from '../../config/types';
 import { CryptoDataContext } from '../../state/context';
 import DashboardCard from '../DashboardCard';
-import ScrollToTopButton from '../ScrollToTopButton';
 import { DisplayGrid } from './styled';
 
 const DashboardGrid = (): JSX.Element => {

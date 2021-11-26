@@ -3,8 +3,8 @@ import NumberFormat from 'react-number-format';
 
 import { SelectChangeEvent, TextField } from '@mui/material';
 
+import CurrencySelect from '../../components/CurrencySelect';
 import { CurrencyObject } from '../../config/types';
-import CurrencySelect from '../CurrencySelect';
 import { CurrencySelectWidth, RowWrapper } from './styled';
 
 interface Props {

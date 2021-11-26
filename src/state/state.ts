@@ -12,7 +12,7 @@ export interface CryptoDataState {
 export const initialCryptoDataState: CryptoDataState = {
   exchangeRate: null,
   cryptoDetails: [],
-  dashboardCurrency: 'czk',
+  dashboardCurrency: 'usd',
   darkMode: loadMode() === 'dark' || userPrefersDark ? true : false,
   error: null,
 };

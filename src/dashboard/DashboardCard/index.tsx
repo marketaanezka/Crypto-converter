@@ -1,9 +1,9 @@
 import React from 'react';
 
+import Icon from '../../components/Icon';
 import { getSymbol } from '../../config/data';
 import { formatNumber, intlNumberFormat } from '../../utils/format-number';
 import { timeFromUnix } from '../../utils/time';
-import Icon from '../Icon';
 import {
   Amount,
   ArrowDown,

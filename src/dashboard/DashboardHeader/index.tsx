@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 
 import { SelectChangeEvent } from '@mui/material';
 
+import CurrencySelect from '../../components/CurrencySelect';
+import ToggleViewButtons from '../../components/ToggleViewButtons';
 import { fiatValues } from '../../config/data';
 import { DashboardCurrency } from '../../config/types';
 import { CryptoDataContext } from '../../state/context';
 import { setDashboardCurrency } from '../../state/reducer';
-import CurrencySelect from '../CurrencySelect';
-import ToggleViewButtons from '../ToggleViewButtons';
 import { DashboardSelectWidth, Header } from './styled';
 
 interface Props {

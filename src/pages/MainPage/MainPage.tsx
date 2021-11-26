@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 
+import Layout from '../../layout/Layout';
+import ErrorScreen from '../../screens/ErrorScreen';
+import LoadingScreen from '../../screens/LoadingScreen';
+import MainScreen from '../../screens/MainScreen';
 import { CryptoDataContext } from '../../state/context';
-import ErrorScreen from '../ErrorScreen';
-import Layout from '../Layout/';
-import LoadingScreen from '../LoadingScreen';
-import MainScreen from '../MainScreen';
 
 export const MainPage = (): JSX.Element => {
   const { state } = useContext(CryptoDataContext);

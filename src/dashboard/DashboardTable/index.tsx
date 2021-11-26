@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
+import Icon from '../../components/Icon';
 import { getSymbol } from '../../config/data';
 import { FormattedCryptoObject } from '../../config/types';
 import { CryptoDataContext } from '../../state/context';
 import { intlNumberFormat } from '../../utils/format-number';
 import { timeFromUnix } from '../../utils/time';
-import Icon from '../Icon';
 import { TableWrapper } from './styled';
 
 const DashboardTable = (): JSX.Element => {

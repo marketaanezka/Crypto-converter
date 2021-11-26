@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useContext } from 'react';
 
+import MaterialUISwitch from '../../components/CustomSwitch';
+import Logo from '../../components/Logo';
 import { CryptoDataContext } from '../../state/context';
 import { setDarkMode } from '../../state/reducer';
 import { saveMode } from '../../utils/local-storage';
-import MaterialUISwitch from '../CustomSwitch';
-import Logo from '../Logo';
 import { HeaderBar } from './styled';
 
 const Header = (): JSX.Element => {
