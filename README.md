@@ -28,7 +28,12 @@ User can switch between light and dark mode.
 
 In case of an error there is a custom error screen in both light and dark mode. 
 
-<img src="./readMeImages/errorscreen.jpg" />
+<details>
+  <summary>Here you can check error screen.</summary>
+  <br>
+  <img src="./readMeImages/errorscreen.jpg" />
+</details>
+
 
 <a id="installation"></a>
 ## 📥 Installation and running app
