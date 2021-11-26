@@ -33,6 +33,7 @@ In case of an error there is a custom error screen in both light and dark mode.
 <a id="installation"></a>
 ## 📥 Installation and running app
 
+Fork and clone this repository.    
 Use the npm package manager to install.
 
 ```bash
