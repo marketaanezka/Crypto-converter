@@ -91,7 +91,7 @@ This project is written in React, using functional components. Folders are struc
 - In convertor input zero does not get replaced by new number but stays as the next digit.
 - When scrolled down and switching view to table, page scrolls to top.
 
-## 👩🏻‍💻 Author 
+## 👾 Author 
 This app was done by Marketa Willis. 
 * [LinkedIn](https://www.linkedin.com/in/marketa-willis-2b322b173/)
 * [Instagram](https://www.instagram.com/marky.programuje/)
