@@ -6,6 +6,7 @@ export const TableWrapper = styled.section`
   padding: ${(props) => props.theme.padding.medium};
   background-color: inherit;
   width: 100%;
+  height: 100%;
   background-color: ${(props) => props.theme.color.cardBg};
   box-shadow: ${(props) => props.theme.cardShadow};
   border-radius: ${(props) => props.theme.borderRadius};
