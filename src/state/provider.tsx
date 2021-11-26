@@ -7,7 +7,7 @@ import {
   cryptoDataReducer,
   setCryptoDataObject,
   setCryptoDetails,
-  setError
+  setError,
 } from './reducer';
 import { initialCryptoDataState } from './state';
 
