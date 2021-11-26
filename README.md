@@ -1,24 +1,44 @@
-## 🛠 Under construction
-
-Application that allows you to convert fiat currency to crypto. Using coingecko api. Personal Project.
-
 # Crypto Converter App
 
 A simple app allowing you to convert selected cryptocurrencies to fiat currencies and vice versa. It also displays current data for listed cryptocurrencies.
 
 ## Table of contents
+* [Motivation](#motivation)    
+* [Demo](#demo)
+* [Data](#data)
+* [Technologies](#technologies)
+* [Sources](#sources)
+* [Future plans](#future)
+* [Known issues](#issues)
 
-## Motivation
+<a id="motivation"></a>
+## 🤓 Motivation
 
-I recently got interested in crypto markets and wanted to be able to convert prices to fiat currency in a simple and straighforward way. I also wanted to have a display of current prices and changes.
+I recently got interested in crypto markets and wanted to be able to convert prices to fiat currency in a simple and straighforward way. I also wanted to have a display of current prices and changes. As I was coding the app, every time I fetched data I found out the current prices which was an added bonus for me and made working on the app even more enjoyable. 
 
-## Demo
+<a id="demo"></a>
+## 👀Demo
 
-App provides converter, has a toggle view between cards and a table, and a switch between light and dark mode.
-GIF
+[Try the demo!](https://crypto-converter-mw.netlify.app/)     
+App provides a converter that works from and to cryptocurrencies. Each input has a select with currencies that updates the exchange rate.      
+There is also a dashboard with current data. Option to toggle view between cards and a table. MUI Table offers built in filtering and sorting tool.     
+User can switch between light and dark mode.     
 
-## Installation and running app
+![App demo](./readMeImages/demo.gif)
 
+In case of an error there is a custom error screen in both light and dark mode. 
+
+<details>
+  <summary>Here you can check error screen.</summary>
+  <br>
+  <img src="./readMeImages/errorscreen.jpg" />
+</details>
+
+
+<a id="installation"></a>
+## 📥 Installation and running app
+
+Fork and clone this repository.    
 Use the npm package manager to install.
 
 ```bash
@@ -30,26 +50,54 @@ To start use a command
 ```bash
 npm start
 ```
+<a id="data"></a>
+## 📊 Data 
 
-## API used
+To get data I used [Coin gecko API](https://www.coingecko.com/en/api/documentation) that provides exchange rates, as well as current and historic data. 
 
-[Coin gecko API](https://www.coingecko.com/en/api/documentation)
+<a id="technologies"></a>
+## 🛠 Technologies used
 
-## Technologies used
+This project is written in React, using functional components. Folders are structured feature-first.
 
-- [React](https://github.com/facebook/create-react-app)
-- [Typescript](https://www.typescriptlang.org/)
-- [Styled components](https://styled-components.com/)
-- [Material UI](https://mui.com/getting-started/usage/)
-- [React number format](https://www.npmjs.com/package/react-number-format)
+- Project starter 
+  - [create-react-app](https://github.com/facebook/create-react-app)
+- Code Quality tools 
+  - Formatting - Prettier
+  - Linting - ESLint
+  - Type Checking - [Typescript](https://www.typescriptlang.org/)
+- State management 
+  - React context in combination with useReducer and custom actions
+- Styling
+  - [Styled components](https://styled-components.com/)
+- UI Libraries 
+  - [Material UI](https://mui.com/getting-started/usage/) for switch, inputs, selects, icons and table.
+- Other libraries
+  - [React number format](https://www.npmjs.com/package/react-number-format) was used to format numbers in inputs 
+- Hosting
+   - [Netlify](https://www.netlify.com/)   
+   
+<a id="sources"></a>
+## 📚 Sources 
+- For crypto icons I used [cryptologos](https://cryptologos.cc/)
+- For country flags I used [circle flags](https://hatscripts.github.io/circle-flags/)
+- Vector image for errorscreen is from [freepik by catalyststuff](https://www.freepik.com/catalyststuff)
 
-## Future plans
+<a id="future"></a>
+## 🌅 Future plans
 
 - User will be able to customize which cryptocurrencies and fiat currencies would be displayed to them. That would offer bigger selection to user.
 - Displaying more detailed information about cryptocurrencies (24h high, 24h low, graph).
 
-## Known issues 🐞
+<a id="issues"></a>
+## 🐞 Known issues
 
 - Material UI table is not resposnsive. [Sticky columns are planned](https://mui.com/components/data-grid/columns/#column-pinning) though.
 - In convertor input zero does not get replaced by new number but stays as the next digit.
 - When scrolled down and switching view to table, page scrolls to top.
+
+## 👾 Author 
+This app was done by Marketa Willis. 
+* [LinkedIn](https://www.linkedin.com/in/marketa-willis-2b322b173/)
+* [Instagram](https://www.instagram.com/marky.programuje/)
+
