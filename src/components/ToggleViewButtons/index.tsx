@@ -7,11 +7,13 @@ import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 interface Props {
   handleChangeView: React.Dispatch<React.SetStateAction<string>>;
   dashboardView: string;
+  width: string[];
 }
 
 const ToggleViewButtons = ({
   handleChangeView,
   dashboardView,
+  width,
 }: Props): JSX.Element => {
   const onViewChange = (
     event: React.MouseEvent<HTMLElement>,
@@ -27,6 +29,9 @@ const ToggleViewButtons = ({
       exclusive
       onChange={onViewChange}
       aria-label="dashboard view"
+      sx={{
+        width: width,
+      }}
     >
       <ToggleButton value="grid" aria-label="grid cards">
         <AppsIcon />
