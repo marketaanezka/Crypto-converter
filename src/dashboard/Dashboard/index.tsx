@@ -19,8 +19,9 @@ const Dashboard = (): JSX.Element => {
   const currency = state.dashboardCurrency;
 
   const handleSearchData = (e: React.ChangeEvent<HTMLInputElement>): void => {
+
     const searchValue = e.target.value.trim().toLowerCase();
-    if (searchValue === '') {
+    if (searchValue === null) {
       return;
     } else {
       setIsSearching(true);
