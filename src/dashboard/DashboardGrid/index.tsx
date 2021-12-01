@@ -14,13 +14,19 @@ const DashboardGrid = ({ cryptoData, currency }: Props): JSX.Element => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    const showScrollButton = () => {
       if (window.pageYOffset > 300) {
         setShowButton(true);
       } else {
         setShowButton(false);
       }
-    });
+    };
+
+    window.addEventListener('scroll', showScrollButton);
+    const cleanup = () => {
+      window.removeEventListener('scroll', showScrollButton);
+    };
+    return cleanup;
   }, []);
 
   return (
