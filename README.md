@@ -9,7 +9,6 @@ A simple app allowing you to convert selected cryptocurrencies to fiat currencie
 * [Technologies](#technologies)
 * [Sources](#sources)
 * [Future plans](#future)
-* [Known issues](#issues)
 
 <a id="motivation"></a>
 ## 🤓 Motivation
@@ -89,12 +88,6 @@ This project is written in React, using functional components. Folders are struc
 - User will be able to customize which cryptocurrencies and fiat currencies would be displayed to them. That would offer bigger selection to user.
 - Displaying more detailed information about cryptocurrencies (24h high, 24h low, graph).
 
-<a id="issues"></a>
-## 🐞 Known issues
-
-- Material UI table is not resposnsive. [Sticky columns are planned](https://mui.com/components/data-grid/columns/#column-pinning) though.
-- In convertor input zero does not get replaced by new number but stays as the next digit.
-- When scrolled down and switching view to table, page scrolls to top.
 
 ## 👾 Author 
 This app was done by Marketa Willis. 
